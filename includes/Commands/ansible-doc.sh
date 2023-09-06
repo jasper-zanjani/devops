@@ -1,4 +1,3 @@
-```sh
 # List currently installed modules
 ansible-doc -l
 
@@ -7,4 +6,3 @@ ansible-doc $MODULE
 
 # Get example code
 ansible-doc -s $MODULE
-```

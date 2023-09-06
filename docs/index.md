@@ -1,10 +1,6 @@
 # Automation using Azure DevOps and Ansible
 
-<!-- TODO:
 
-- [Resources](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/resources?view=azure-devops&tabs=schema) represent sources of pipelines, builds, repositories, **containers**, packages, and webhooks.
-    - What is the significance of the containers?
-- templates? -->
 
 
 **Azure Pipelines** are used to automate the building of source code, including executing associated tasks like unit tests and packaging.
@@ -321,3 +317,33 @@ schedules:
 ```
 
 1. [**always**](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers#running-even-when-there-are-no-code-changes) ensures that the pipeline runs even when there are no code changes.
+
+
+#### resources
+
+<!-- TODO:
+
+- [Resources](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/resources?view=azure-devops&tabs=schema) represent sources of pipelines, builds, repositories, **containers**, packages, and webhooks.
+    - What is the significance of the containers?
+- templates? -->
+
+```yaml
+resources:
+  repositories:
+  - repository: network_bootstrap
+    type: git
+    name: devops_network-pipeline-templates
+    ref: refs/heads/master
+```
+
+Files from this repository can now be referenced by the repository name after **@**
+
+```yaml
+stages:
+- stage: KickstartISO
+  displayName: Generate Kickstart
+  variables:
+  - template: .connect_vars.yml@network_bootstrap
+    parameters:
+      deploy_net: ${{ parameters['deploy_net'] }}
+```?

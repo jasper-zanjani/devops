@@ -1,4 +1,3 @@
-```yaml
 - name: Syncronize "simple_allow_users"
   community.general.ini_file:
     path: /etc/sssd/sssd.conf
@@ -17,4 +16,3 @@
     state: absent
     exclusive: true
   when: "((ad['allowedusers'] | default([])) | length) < 1"
-```

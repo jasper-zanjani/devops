@@ -1,4 +1,3 @@
-```yaml
 # pods.redhat_subscriptions/roles/cockpit_setup/tasks/main.yml
 - name: Install Cockpit
   ansible.builtin.yum:
@@ -23,5 +22,3 @@
       - perf
     state: latest
   when: ansible_os_family == "RedHat"  
-
-```

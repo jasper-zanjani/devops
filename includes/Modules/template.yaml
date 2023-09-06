@@ -1,0 +1,20 @@
+- name: install index
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+# (1)!
+
+# devops_solarwinds_role
+- name: Add mirrorlist
+  template:
+    src: "{{ role_path }}/templates/swiagent-amzn-2015.mirrors.j2"
+    dest: /etc/yum.repos.d/swiagent-amzn-2015.mirrors
+  when: ansible_os_family == "RedHat"  
+# (2)!
+
+- name: Add deb repo
+  template:
+    src: "{{ role_path }}/templates/swiagent-ubuntu-14.list.j2"
+    dest:  /etc/apt/sources.list.d/swiagent-ubuntu-14.list
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+# (3)!

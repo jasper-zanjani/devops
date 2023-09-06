@@ -1,0 +1,11 @@
+- name: Change file ownership, group and permissions
+  file:
+    path: /etc/foo.conf
+    owner: foo
+    group: foo
+    mode: '0644'
+- name: Create a directory if it does not exist
+  file:
+    path: /etc/foo
+    state: directory
+    mode: '0755'

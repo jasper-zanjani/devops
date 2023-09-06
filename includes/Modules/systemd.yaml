@@ -1,4 +1,3 @@
-```yaml
 # pods.redhat_subscriptions/roles/cockpit_setup/tasks/main.yml
 - name: Enable and start cockpit
   ansible.builtin.systemd:
@@ -13,4 +12,3 @@
     state: restarted
     daemon_reload: yes
     enabled: true
-```

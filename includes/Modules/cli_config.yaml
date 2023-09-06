@@ -1,5 +1,5 @@
-```yaml title="cli_config"
-# Platform-agnostic way of [pushing text-based configurations](https://opensource.com/article/19/9/must-know-ansible-modules) to network devices over the **network_cli_connection** plugin.
+# Platform-agnostic way of pushing text-based configurations to network devices over the network_cli_connection plugin.
+# Source: https://opensource.com/article/19/9/must-know-ansible-modules
 - name: Set hostname for a switch and exit with a commit message
   cli_config:
     config: set system host-name foo
@@ -11,4 +11,3 @@
     backup_options:
       filename: backup.cfg
       dir_path: /home/user
-```

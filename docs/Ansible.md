@@ -10,7 +10,7 @@
     4. Use Ansible Tower to look for files larger than a particular size in a directory.
     5. Debug a system performance problem. 
 
-Ansible is an automation tool used for configuration management using human-readable YAML templates. 
+**Ansible** is an automation tool used for configuration management using human-readable YAML templates. 
 Ansible is distinguished for being **agentless**, meaning no special software is required on the nodes it manages.
 
 Ansible can be used in one of two ways:
@@ -29,9 +29,8 @@ Any ad hoc command can be rewritten as a playbook, but some modules can only be 
     content: "Hello, World!"
 ```
 
-Ansible host management relies on an [**inventory**](https://docs.ansible.com/ansible/latest/getting_started/get_started_inventory.html#building-an-inventory){: #inventory } file containing a list of IP addresses or hostnames organized in groups.
-Inventories can be INI or YAML format.
-Inventories are conventionally organized as a file named **hosts** at the root of a project directory, although a system hosts file can be defined at **/etc/ansible/hosts**.
+Ansible host management relies on an [**inventory**](https://docs.ansible.com/ansible/latest/getting_started/get_started_inventory.html#building-an-inventory){: #inventory } file, an INI or YAML format file containing a list of servers or nodes that can be organized in groups.
+Inventories are conventionally organized as a file named **hosts** at the root of a project directory, although a system hosts file can also be defined at **/etc/ansible/hosts**.
 
 #### Variables
 
@@ -71,11 +70,28 @@ ansible-playbook release.yml -e "version=1.23.45 other_variable=foo"
 
 Variables cane be [encrypted inline](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_vault.html#single-encrypted-variable) in an otherwise cleartext vars file.
 
+#### Loops
+
+Here is an unusual example of a loop that uses the control variable to successively delete, then create a directory
+
+```yaml
+- name: Regen Kickstart dir
+  file:
+    path: "{{ isopath }}/ks"
+    state: "{{ stmp }}"
+  loop:
+    - absent
+    - directory
+  loop_control:
+    loop_var: stmp
+```
+
+
 #### Jinja2
 
 Various effects are possible using Jinja2 templates:
 
-Jinja2 **control structures** support control flow features like loops and conditionals inside **`{% ... %}`** blocks.
+Jinja2 **control structures** support control flow features like loops and conditionals inside **{% ... %}** blocks.
 
 ```yaml hl_lines="3"
 - name: Find any YUM/DNF variables
@@ -186,6 +202,7 @@ Ansible content can include playbooks, modules, roles, documentation, tests, plu
 Ansible collections are delivered using **Ansible Galaxy** and each collection needs a galaxy.yml file that describes the collection.
 
 Collections can be installed from a YAML-format requirements file:
+
 ```sh
 ansible-galaxy collection install -r ansible/requirements.yml
 ```
@@ -204,7 +221,6 @@ roles:
 #### Handlers
 
 **Handlers** are tasks that are executed when notified by a task. They are only run once, and only if the notifying task has made a change to the system. 
-
 
 Here, **Enable Apache** will be called if **Install Apache** makes a change. 
 If apache2 is already installed, the handler is not called. 
@@ -236,7 +252,7 @@ If apache2 is already installed, the handler is not called.
     service: "name={{ package_name }} enabled=yes state=started" 
 ```
 
-**Conditional logic** is [implemented][https://www.linuxjournal.com/content/ansible-part-iii-playbooks] on each task by defining a value for the **when** statement:
+**Conditional logic** is [implemented](https://www.linuxjournal.com/content/ansible-part-iii-playbooks) on each task by defining a value for the **when** statement:
 
 ```yaml hl_lines="7"
 - hosts: all
@@ -272,6 +288,7 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
     ```
 
     An Ansible service account is created on each **managed node**.
+
     ```sh
     useradd ansible -s /usr/bin/bash -mG wheel # sudo
     passwd ansible
@@ -282,19 +299,8 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
     Now the service account is given the ability to sudo any command without a password.
 
     ```sh title="/etc/sudoers.d/ansible"
+    # Without this line, plays will fail with the message "Missing sudo password" 
     ansible ALL=(ALL) NOPASSWD: ALL
-    # (1)!
-    ```
-
-    1. Without this line, plays will fail with the message "Missing sudo password" 
-    ``` hl_lines="4"
-    PLAY [Running motd role] *******************************************************
-
-    TASK [Gathering Facts] *********************************************************
-    fatal: [hyperv-centos9]: FAILED! => {"msg": "Missing sudo password"}
-
-    PLAY RECAP *********************************************************************
-    hyperv-centos9             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
     ```
 
     The system inventory is an INI-format config located at **etc/ansible/hosts** and defines the clients which are to be controlled by the server.
@@ -363,91 +369,163 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
 
 ## Commands
 
-#### ansible
-:   
-    --8<-- "includes/Commands/ansible.md"
+```sh title="ansible"
+--8<-- "includes/Commands/ansible.sh"
+```
 
-#### ansible-config
-:   
-    --8<-- "includes/Commands/ansible-config.md"
+```sh title="ansible-config"
+--8<-- "includes/Commands/ansible-config.sh"
+```
 
-#### ansible-doc
-:   
-    --8<-- "includes/Commands/ansible-doc.md"
+```sh title="ansible-doc"
+--8<-- "includes/Commands/ansible-doc.sh"
+```
+
+```sh title="ansible-playbook"
+--8<-- "includes/Commands/ansible-playbook.sh"
+```
+
+```sh title="ansible-vault"
+--8<-- "includes/Commands/ansible-vault.sh"
+```
 
 #### ansible-galaxy
 :   
     --8<-- "includes/Commands/ansible-galaxy.md"
 
-#### ansible-playbook
-:   
-    --8<-- "includes/Commands/ansible-playbook.md"
-
-#### ansible-vault
-:   
-    --8<-- "includes/Commands/ansible-vault.md"
-
 ## Modules
 
-### Miscellaneous
-:   
-    --8<-- "includes/Modules/archive.md"
+```yaml title="apt"
+--8<-- "includes/Modules/apt.yaml"
+```
 
-    --8<-- "includes/Modules/cli_config.md"
+```yaml title="archive"
+--8<-- "includes/Modules/archive.yaml"
+```
 
-    --8<-- "includes/Modules/command.md"
+```yaml title="cli_config"
+--8<-- "includes/Modules/cli_config.yaml"
+```
 
-    --8<-- "includes/Modules/copy.md"
+```yaml title="command"
+--8<-- "includes/Modules/command.yaml"
+```
 
-    --8<-- "includes/Modules/debug.md"
+```yaml title="copy"
+--8<-- "includes/Modules/copy.yaml"
+```
 
-    --8<-- "includes/Modules/file.md"
+```yaml title="debug"
+--8<-- "includes/Modules/debug.yaml"
+```
 
-    --8<-- "includes/Modules/firewalld.md"
+```yaml title="file"
+--8<-- "includes/Modules/file.yaml"
+```
 
-    --8<-- "includes/Modules/git.md"
+```sh title="file"
+--8<-- "includes/Modules/file.sh"
+```
 
-    --8<-- "includes/Modules/group.md"
+```yaml title="firewalld"
+--8<-- "includes/Modules/firewalld.yaml"
+```
 
-    --8<-- "includes/Modules/ini_file.md"
+```yaml title="git"
+--8<-- "includes/Modules/git.yaml"
+```
 
-    --8<-- "includes/Modules/lineinfile.md"
+```yaml title="group"
+--8<-- "includes/Modules/group.yaml"
+```
 
-    --8<-- "includes/Modules/redhat_subscription.md"
+```yaml title="ini_file"
+--8<-- "includes/Modules/ini_file.yaml"
+```
 
-    --8<-- "includes/Modules/replace.md"
+```yaml title="lineinfile"
+--8<-- "includes/Modules/lineinfile.yaml"
+```
 
-    --8<-- "includes/Modules/service.md"
+```yaml title="package"
+--8<-- "includes/Modules/package.yaml"
+```
 
-    --8<-- "includes/Modules/setup.md"
+```yaml title="redhat_subscription"
+--8<-- "includes/Modules/redhat_subscription.yaml"
+```
 
-    --8<-- "includes/Modules/systemd.md"
+```yaml title="replace"
+--8<-- "includes/Modules/replace.yaml"
+```
 
-    --8<-- "includes/Modules/template.md"
+```yaml title="service"
+--8<-- "includes/Modules/service.yaml"
+```
 
-    --8<-- "includes/Modules/user.md"
+```sh title="setup"
+--8<-- "includes/Modules/setup.sh"
+```
 
-### Package management
+```yaml title="shell"
+# From PODS
+- name: Remove Grub Defaults
+  shell: |
+    awk '/### BEGIN \/etc\/grub.d\/10_linux ###/{stop=1} stop==0{print}' < ks/EFI/BOOT/grub.cfg > grub.cfg
+    cat grub.cfg
+  args:
+    chdir: "{{ isopath }}"
+```
 
-#### apt
-:   
-    --8<-- "includes/Modules/apt.md"
+```yaml title="snap"
+--8<-- "includes/Modules/snap.yaml"
+```
 
-#### package
-:   
-    --8<-- "includes/Modules/package.md"
+```yaml title="systemd"
+--8<-- "includes/Modules/systemd.yaml"
+```
 
-#### snap
-:   
-    --8<-- "includes/Modules/snap.md"
+```yaml title="template"
+--8<-- "includes/Modules/template.yaml"
+```
 
-#### yum
-:   
-    --8<-- "includes/Modules/yum.md"
+1. 
+```html title="Jinja2 template file"
+<html>
+  <h1>This computer is running {{ ansible_os_family }},
+  and its hostname is:</h1>
+  <h3>{{ ansible_hostname }}</h3>
+  {# this is a comment, which won't be copied to the index.html file #}
+</html>
+```
+2. 
+```
+{% for host in groups['solarwinds'] %}
+https://{{ host }}/Orion/AgentManagement/LinuxPackageRepository.ashx?path=/dists/amzn-2015/$basearch
+https://{{ host }}:443/Orion/AgentManagement/LinuxPackageRepository.ashx?path=/dists/amzn-2015/$basearch
+{% endfor %}
+```
+3. 
+```
+{% for host in groups['solarwinds'] %}
+deb [trusted=yes] https://{{ host }}/Orion/AgentManagement/LinuxPackageRepository.ashx?path= ubuntu-14 swiagent
+deb [trusted=yes] https://{{ host }}:443/Orion/AgentManagement/LinuxPackageRepository.ashx?path= ubuntu-14 swiagent
+{% endfor %}
+```
 
-#### yum_repository
-:   
-    --8<-- "includes/Modules/yum_repository.md"
+
+
+```yaml title="user"
+--8<-- "includes/Modules/user.yaml"
+```
+
+```yaml title="yum"
+--8<-- "includes/Modules/yum.yaml"
+```
+
+```yaml title="yum_repository"
+--8<-- "includes/Modules/yum_repository.yaml"
+```
 
 ## Glossary
 
@@ -457,11 +535,9 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
 - **Ansible Vault**: place to keep encrypted passwords
 - **AWX**: Open-source project upon which Ansible Tower was built
 - **Fact**: System property gathered by Ansible when it executes a playbook on a node
-- [**Inventory**](#inventory): INI-format file containing a list of servers or nodes that you are managing and configuring
 - [**Module**](#modules): standalone scripts that enable a particular task across many OSes, services, applications, etc. 
 Predefined modules are available in the **module library**, and new ones can be defined via Python or JSON.
 - **Play**: script or instruction that defines the task to be carried out in a server
-- [**Playbook**](#playbook):   
 - **Role**: organize components of playbooks, allowing them to be reused
 - [**Task**](#task): A single scripted action in a playbook, equivalent to an ad hoc command
 - [**Vault**](#vault): feature of Ansible that allows you to keep sensitive data such as passwords or keys protected at rest, rather than as plaintext in playbooks or roles.

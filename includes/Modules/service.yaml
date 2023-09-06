@@ -1,4 +1,3 @@
-```yaml title="service"
 - name: Start service foo, based on running process /usr/bin/foo
   service:
     name: foo
@@ -9,4 +8,3 @@
     name: network
     state: restarted
     args: eth0
-```

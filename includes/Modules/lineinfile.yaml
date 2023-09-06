@@ -1,4 +1,3 @@
-```yaml title="lineinfile"
 - name: Ensure SELinux is set to enforcing mode
   lineinfile:
     path: /etc/selinux/config
@@ -9,4 +8,3 @@
     path: /etc/resolv.conf
     line: 192.168.1.99 foo.lab.net foo
     create: yes
-```

@@ -3,8 +3,8 @@ site_url: https://jasper-zanjani.github.io/devops
 site_dir: site
 theme:
   name: material
-  favicon: img/brain.png
-  logo: img/brain.png
+  favicon: favicon.png
+  logo: logo.png
   palette:
     scheme: slate
     primary: pink

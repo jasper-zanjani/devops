@@ -1,4 +1,3 @@
-```sh
 # Create an encrypted file, providing password interactively
 ansible-vault create $file
 
@@ -10,4 +9,3 @@ ansible-vault encrypt $file
 ansible-vault decrypt $file
 
 ansible-vault edit secret.yml
-```

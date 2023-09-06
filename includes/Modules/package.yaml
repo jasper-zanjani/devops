@@ -1,4 +1,3 @@
-```yaml title="package"
 - name: Install Apache and MariaDB
   dnf:
     name:
@@ -12,4 +11,3 @@
     - postgresql
     - postgresql-server
     state: present
-```

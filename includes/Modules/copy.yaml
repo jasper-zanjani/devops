@@ -1,4 +1,3 @@
-```yaml title="copy"
 - name: Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
   copy:
     src: /mine/ntp.conf
@@ -14,4 +13,3 @@
     owner: foo
     group: foo
     mode: u=rw,g=r,o=r
-```

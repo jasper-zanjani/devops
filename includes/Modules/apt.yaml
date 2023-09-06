@@ -1,4 +1,3 @@
-```yaml
 # devops_solarwinds_role
 - name: Install apt-transport-https
   apt:
@@ -17,4 +16,3 @@
       # - linux-tools
     state: latest
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-```
