@@ -20,6 +20,29 @@
 **Kubernetes** (Greek for "helmsman", "pilot", or "captain" and "k8s" for short) has emerged as the leading **container orchestrator** in the industry since 2018. 
 It provides a layer that abstracts infrastructure, including computers, networks, and other computers, for applications deployed on top.
 
+## Concepts
+
+<div class="grid cards" markdown>
+
+-   #### Epistemology
+
+    ---
+
+-   #### Namespaces
+
+    ---
+
+    Kubernetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) provide a mechanism for logically grouping and isolating resources within a cluster.
+    Various namespaces exist by default:
+
+    - **default**
+    - **kube-node-lease**
+    - **kube-public**
+    - **kube-system**
+
+</div>
+
+
 Kubernetes can be visualized as a system built from layers, with each higher layer abstracting the complexity of the lower levels.
 One server serves as the **master**, exposing an API for users and clients, assigning workloads, and orchestrating communication between other components.
 The processes on the master node are also called the **control plane**.
@@ -152,7 +175,7 @@ Volumes are declared in **.spec.volumes** and mounted into containers in **.spec
             name: "data"
     ```
 
-**Replica**{: #replica } :material-kubernetes:
+**Replica**{: #replica }
 :   
     An instance of a [Pod](#pod)
 
@@ -187,10 +210,18 @@ Volumes are declared in **.spec.volumes** and mounted into containers in **.spec
     A [**Service**](https://jamesdefabia.github.io/docs/user-guide/services/) is an abstraction over a logical set of Pods and a policy by which to access them, i.e. a microservice.
     Because Pods are mortal, the **Service controller** keeps track of Pod addresses and publishes this information to the consumers of Services, a function called **service discovery**.
 
-**Worker** :material-kubernetes
+**Worker**
 :   
     see [Node](#node)
 
-## kubectl
+## Commands
 
---8<-- "includes/Commands/kubectl.md"
+<div class="grid cards" markdown>
+
+-   #### kubectl
+
+    ---
+
+    --8<-- "includes/Commands/kubectl.md"
+
+</div>

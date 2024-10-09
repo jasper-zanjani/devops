@@ -30,8 +30,14 @@ The agent software package contains several shell scripts that provide various w
     wget "https://vstsagentpackage.azureedge.net/agent/3.218.0/vsts-agent-linux-x64-3.218.0.tar.gz"
     mkdir agent; cd agent
     tar xfz "vsts-agent-linux-x64-3.218.0.tar.gz"
+
+    # Configure agent
     ./config.sh
+
+    # Install systemctl service
     sudo ./svc.sh install
+
+    # Start systemctl service
     sudo ./svc.sh run
     ```
 
