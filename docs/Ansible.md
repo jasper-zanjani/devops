@@ -370,23 +370,23 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
 ## Commands
 
 ```sh title="ansible"
---8<-- "includes/Commands/ansible.sh"
+--8<-- "includes/Commands/a/ansible.sh"
 ```
 
 ```sh title="ansible-config"
---8<-- "includes/Commands/ansible-config.sh"
+--8<-- "includes/Commands/a/ansible-config.sh"
 ```
 
 ```sh title="ansible-doc"
---8<-- "includes/Commands/ansible-doc.sh"
+--8<-- "includes/Commands/a/ansible-doc.sh"
 ```
 
 ```sh title="ansible-playbook"
---8<-- "includes/Commands/ansible-playbook.sh"
+--8<-- "includes/Commands/a/ansible-playbook.sh"
 ```
 
 ```sh title="ansible-vault"
---8<-- "includes/Commands/ansible-vault.sh"
+--8<-- "includes/Commands/a/ansible-vault.sh"
 ```
 
 #### ansible-galaxy
