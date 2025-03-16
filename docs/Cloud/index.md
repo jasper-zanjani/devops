@@ -1,19 +1,34 @@
---8<-- "includes/Cloud/abbr.md"
 
 # Overview
 
---8<-- "includes/Cloud/Table.md"
+!!! info "History"
 
-Links TODO:
+    Beginning in 2000, Amazon began developing Merchant.com, a planned e-commerce service that was intended to be the base upon which other enterprises would develop online shopping sites.
+    At the time, Amazon's development environment was a jumbled mess, and in the effort to consolidate and organize the enterprise into a set of well-documented APIs.
 
-- Cloud Storage
-- CloudWatch
-- Azure Functions
-- Glacier
-- Google Cloud Storage (GCS)
-- [gcloud][gcloud]
-- gsutil
-- Simple Notification Service
+    Despite these changes, software development remained sluggish, and an investigation discovered that individual teams were procuring storage, compute, and database resources independently.
+    AWS originated out of the effort to consolidate these resources across the enterprise and remove this bottleneck.
+
+    Azure was announced in 2008 and publicly released in 2010 after earlier experiments in cloud computing like Whitehorse and RedDog. 
+    In fact, references to the "classic" model predating the Azure Resource Manager (ARM) actually refer to RedDog: the "classic" portal was also known as "RedDog Front-End".
+
+#### CLI tools
+
+<div class="grid cards" markdown>
+
+!!! info "Azure CLI"
+
+    --8<-- "includes/Commands/a/az.md"
+
+!!! info "IBM Cloud CLI"
+
+    --8<-- "includes/Commands/i/ibmcloud.md"
+
+!!! info "runpodctl"
+
+    --8<-- "includes/Commands/r/runpodctl.md"
+
+</div>
 
 ## Administration
 
@@ -109,10 +124,6 @@ Resources
 
 ### Monitoring
 
-|                                                                                                                                                   :material-microsoft-azure:                                                                                                                                                    |                                                            :fontawesome-brands-aws:                                                             |                                                                                                                                      :fontawesome-brands-google:                                                                                                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <figure><img src="./img/00001-icon-service-Monitor.svg" width="120px"><figcaption>Azure Monitor :material-file-document-edit-outline:</figcaption></figure><figure><img src="./img/10066-icon-service-Network-Watcher.svg" width="120px"/><figcaption>Network Watcher :material-file-document-edit-outline:</figcaption></figure> | <figure><img src="./img/Arch_Amazon-CloudWatch_64.svg" width="120px"/><figcaption>[CloudWatch :material-file-document-edit-outline:][CloudWatch] | <figure><img src="./img/Stackdriver-512-color.svg" width="120px"/><figcaption>[Stackdriver :material-file-document-edit-outline:][Stackdriver] :fontawesome-brands-google:</figcaption></figure>![](/Cloud/img/trace-512-color.svg){: width='120px' }<figcaption>[Trace][Trace]</figcaption><figure></figure> |
-
 
 ### Resources
 
@@ -134,15 +145,6 @@ In AWS the **Organizational Unit (OU)**, which can organize **user accounts** (s
 A pattern common to Azure is that of a service being implemented in two resource types, one of which determines important configuration settings shared by all instances of the service which are contained within it.
 This is the case for [storage accounts](#storage-accounts), [App Service][App Service], Azure Data Explorer clusters, etc.
 
-
-| [:material-microsoft-azure:](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) | [:fontawesome-brands-aws:](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html) | :fontawesome-brands-google: | Description                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| Tenant                                                                                                                                                                          | Organization                                                                                                              | Organization                | Corresponds to a company or organization                                      |
-| Management group                                                                                                                                                                | Organizational Unit                                                                                                       | &nbsp;                      | Logical container for user accounts and the resources created by that user    |
-| Subscription                                                                                                                                                                    | Member account                                                                                                            | ?                           | Credential associated with an individual                                      |
-| &nbsp;                                                                                                                                                                          | &nbsp;                                                                                                                    | Folder                      | Organize resources and their parents in a nested hierarchy                    |
-| Resource group                                                                                                                                                                  | &nbsp;                                                                                                                    | Project                     | Logical container that is the direct parent to any resource, tied to a Region |
-| Tag                                                                                                                                                                             | Tag                                                                                                                       | Label                       | Key-value pairs that are used to organize resources                           |
 
 The **resource hierarchy** organizes GCP resources in 3 levels below Domain
 
@@ -222,10 +224,6 @@ The policy can specify frequency of backups, and other settings. Using Backup se
 
 ### Physical media
 
-|                                                                                                                                    :material-microsoft-azure:                                                                                                                                     |                                                  :fontawesome-brands-aws:                                                   |                                                               :fontawesome-brands-google:                                                               |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <figure><img src="./img/10094-icon-service-Data-Box.svg" width="120px" title="Data Box"/><figcaption>Data Box</figcaption></figure> <figure><img src="./img/10100-icon-service-Import-Export-Jobs.svg" width="120px" title="Import/Export"/><figcaption>Import/Export Service</figcaption></figure> | <figure><img src="./img/Arch_AWS-Snowball_64.svg" width="120px" title="Snowball"/><figcaption>Snowball</figcaption></figure> | <figure><img src="./img/transfer-appliance-512-color.svg" width="120px" title="Transfer Appliance"/><figcaption>Transfer Appliance</figcaption></figure> |
-
     
 :octicons-play-24: [Uploading files to GCS](https://youtu.be/nmZxfuFIP08 "YouTube - Uploading files to GCS (Cloud Storage Bytes)")
 
@@ -283,10 +281,6 @@ Alternatively, two peered networks can share a single virtual network gateway, s
 
 ### Network security
 
-|                                                                                :material-microsoft-azure:                                                                                 |                 :fontawesome-brands-aws:                 |                                                            :fontawesome-brands-google:                                                            |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
-| <figure><img src="./img/10067-icon-service-Network-Security-Groups.svg" width="120px" title="Network Security Group (NSG)"/><figcaption>Network Security Group (NSG)</figcaption></figure> | <figure><figcaption>Security Group</figcaption></figure> | <figure><img src="./img/cloud-firewall-rules-512-color.svg" width="120px" title="Firewall Rules"/><figcaption>Firewall Rules</figcaption></figure> |
-
 Azure **Network Security Groups (NSGs)** are associated with **network interfaces** and contain an arbitrary number of **security rules**.
 Each rule has the following properties:
 
@@ -323,10 +317,6 @@ Resources:
 - [:octicons-play-24: Protect your Google Cloud Instances with Firewall Rules](https://www.youtube.com/watch?v=HTVV9YzGw5k)
 
 ### DNS
-
-|                                                                                                                                                                      :material-microsoft-azure:                                                                                                                                                                      |                                                                                                                                                       :fontawesome-brands-aws:                                                                                                                                                       |                                                                                                           :fontawesome-brands-google:                                                                                                            |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <figure><img src="./img/10064-icon-service-DNS-Zones.svg" width="120px" title="Azure DNS"/><figcaption>[Azure DNS :material-file-document-edit-outline:](#azure-dns) [:material-information-outline:](https://azure.microsoft.com/en-us/services/dns/) [:material-file-document-multiple-outline:](https://docs.microsoft.com/en-us/azure/dns/)</figcaption></figure> | <figure><img src="./img/Arch_Amazon-Route-53_64.svg" width="120px"/><figcaption>[Route 53 :material-file-document-edit-outline:](#route-53) [:material-information-outline:](https://aws.amazon.com/route53/) [:material-file-document-multiple-outline:](https://docs.aws.amazon.com/route53/?id=docs_gateway)</figcaption></figure> | <figure><img src="./img/cloud-dns-512-color.svg" width="120px"/><figcaption>[Cloud DNS :material-information-outline:](https://cloud.google.com/dns) [:material-file-document-multiple-outline:](https://cloud.google.com/)</figcaption></figure> |
 
 
 ### CDN
@@ -371,15 +361,3 @@ This is an advantage for databases that are optimized for reads as opposed to wr
 However, when changing information that is duplicated in several places, write operations will be more laborious and prone to error.
 NoSQL databases are also **horizontally scalable** because the information can be sharded horizontally more easily than relational database, which are only **vertically scalable** (meaning scaling them requires larger and larger computers) and can only be sharded vertically. ([src](https://youtu.be/v_hR4K4auoQ?t=620 "YouTube - What is a NoSQL Database? How is Cloud Firestore structured? | Get to Know Cloud Firestore #1"))
 
-### Big Data
-
-## History
-
-Beginning in 2000, Amazon began developing Merchant.com, a planned e-commerce service that was intended to be the base upon which other enterprises would develop online shopping sites.
-At the time, Amazon's development environment was a jumbled mess, and in the effort to consolidate and organize the enterprise into a set of well-documented APIs.
-
-Despite these changes, software development remained sluggish, and an investigation discovered that individual teams were procuring storage, compute, and database resources independently.
-AWS originated out of the effort to consolidate these resources across the enterprise and remove this bottleneck.
-
-Azure was announced in 2008 and publicly released in 2010 after earlier experiments in cloud computing like Whitehorse and RedDog. 
-In fact, references to the "classic" model predating the Azure Resource Manager (ARM) actually refer to RedDog: the "classic" portal was also known as "RedDog Front-End".
