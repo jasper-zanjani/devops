@@ -1,0 +1,1 @@
+kubectl describe nodes/gke-*4ff6f64a-6f4v
