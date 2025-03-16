@@ -2,15 +2,21 @@
 
 ![](/img/arm.png)
 
-**Azure Resource Manager (ARM)** is the interface for managing and organizing cloud resources. <sup>[?](https://docs.microsoft.com/en-us/learn/modules/build-azure-vm-templates/2-define-templates)</sup> 
+[**Azure Resource Manager (ARM)**](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) is the interface for managing and organizing cloud resources.
 
-An ARM **template** is a JSON file that precisely defines all ARM [resources](Resources) in a deployment. An ARM template can be deployed into a [resource group](Resources#resource-groups) as a single operation.
+An ARM [**template**](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) is a JSON file that precisely defines all ARM [resources](Resources) in a deployment. An ARM template can be deployed into a [resource group](Resources#resource-groups) as a single operation.
+
+Azure templates can be [targeted](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli#deployment-scope) to a resource group, subscription, management group, or tenant.
+
+```sh
+--8<-- "includes/Commands/az/az-deployment.sh"
+```
 
 ARM templates are typically adapted from existing **Azure Quickstart** templates, which are contributed by the community and hosted on a [gallery](https://azure.microsoft.com/resources/templates). The **Azure Resource Manager Visualizer** assists users in seeing what the template will do before actually deploying.
 
 The **Custom Script Extension** is a way to run scripts on Azure VMs and represents one of the ways to automate configuration of new deployments. <sup>[?](https://docs.microsoft.com/en-us/learn/modules/build-azure-vm-templates/5-add-a-resource?pivots=windows-cloud)</sup>
 
-If you explort a deployment to a template, only the resources deployed in that deployment will be templatized. In the case of a complex deployment that had several phases, the ultimate result of the deployment can be obtained by exporting the template from the resource group.
+If you export a deployment to a template, only the resources deployed in that deployment will be templatized. In the case of a complex deployment that had several phases, the ultimate result of the deployment can be obtained by exporting the template from the resource group.
 
 ## Structure
 
@@ -68,11 +74,8 @@ Create a storage account
   "properties": {} }
 ```
 
-Create a Azure Data Explorer cluster
-```json
-
-```
 ### Parameters
+
 ```json
 "adminUsername": {
   "type": "string",
@@ -85,6 +88,7 @@ Create a Azure Data Explorer cluster
 ```
 
 [Simple storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json#L27)
+
 ```json
 { "storageAccountType": {
     "type": "string",
@@ -102,7 +106,9 @@ Create a Azure Data Explorer cluster
     "metadata": {
       "description": "Location for all resources." }}}
 ```
+
 ### Variables
+
 ```json
 { "nicName": "myVMNic",
   "addressPrefix": "10.0.0.0/16",
@@ -130,10 +136,18 @@ Create a globally unique name, useful for some resources that require it. `conca
         ],
         "output": {
           "type": "string",
-          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]" }}}}
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]" 
+        }
+      }
+    }
+  }
 ]
 ```
+
+
 ### Outputs
+
+
 ```json
 "outputs": {
   "hostname": {
@@ -142,7 +156,10 @@ Create a globally unique name, useful for some resources that require it. `conca
   }
 }
 ```
+
 [Standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+
+
 ```json
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -159,8 +176,11 @@ Create a globally unique name, useful for some resources that require it. `conca
   }
 }
 ```
+
 # Tasks
+
 :point_right: [Deploy a VM quickstart template](https://docs.microsoft.com/en-us/learn/modules/build-azure-vm-templates/4-deploy-a-vm-quickstart-template?pivots=windows-cloud)
+
 ## Create a resource group
 
 Create a resource group 
@@ -196,7 +216,9 @@ az deployment group show --name MyDeployment --resource-group $RESOURCEGROUP
 ```
 
 ## ARM
+
 [?](https://docs.microsoft.com/en-us/learn/modules/build-azure-vm-templates/5-add-a-resource?pivots=windows-cloud)
+
 ```json
 {
   "name": "[concat(variables('vmName'), '/', 'ConfigureIIS')]",

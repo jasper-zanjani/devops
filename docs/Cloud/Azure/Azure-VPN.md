@@ -17,11 +17,19 @@ The VPN gateway acts as a pass-through forwarding authentication messages betwee
 ```powershell
 $localnw = New-AzLocalNetworkGateway -Name LocalNetGW -ResourceGroupName ExamRefRG -Location "West Europe" -GatewayIpAddress "53.50.123.195" -AddressPrefix "10.5.0.0/16" 
 ```
-Create VPN connection
-```powershell
+
+
+
+```powershell title="Create VPN connection"
 $gateway = Get-AzVirtualNetworkGateway -Name VPNGW1 -ResourceGroupName ExamRefRG
-$conn = New-AzVirtualNetworkGatewayConnection -Name OnPremConnection -ResourceGroupName ExamRefRG -Location 'West Europe' -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $localnw -ConnectionType IPsec -SharedKey "abc123"
+$conn = New-AzVirtualNetworkGatewayConnection 
+    -Name OnPremConnection -ResourceGroupName ExamRefRG -Location 'West Europe' 
+    -VirtualNetworkGateway1 $gateway 
+    -LocalNetworkGateway2 $localnw 
+    -ConnectionType IPsec 
+    -SharedKey "abc123"
 ```
+
 ### Create a VPN Gateway
 
 ```powershell
@@ -123,30 +131,32 @@ Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -T
 Create a storage account and container for logs
 
 ```sh
-az storage account create --name examrefstorage --location westeurope --resource-group ExamRefRG --sku Standard_LRS
-az storage account keys list --resource-group ExamRefRG --account-name examrefstorage
-az storage container create --account-name examrefstorage --account-key {storageAccountKey} --name logs
+az storage account create 
+    --name examrefstorage --location westeurope --resource-group ExamRefRG 
+    --sku Standard_LRS
+
+az storage account keys list 
+    --resource-group ExamRefRG --account-name examrefstorage
+
+az storage container create 
+    --account-name examrefstorage --account-key {storageAccountKey} --name logs
 ```
 
-Start VPN Troubleshoot
 
-```sh
-az network watcher troubleshooting start --resource-group ExamRefRG --resource Vnet1-to-Vnet2 --resource-type vpnConnection --storage-account examrefstorage --storage-path https://examrefstorage.blob.core.windows.net/logs --output json
+```sh title="Start VPN Troubleshoot"
+az network watcher troubleshooting start 
+    --resource-group ExamRefRG --resource Vnet1-to-Vnet2 
+    --resource-type vpnConnection 
+    --storage-account examrefstorage 
+    --storage-path https://examrefstorage.blob.core.windows.net/logs 
+    --output json
 ```
-### Create S2S VPN
+### 
+
 AZ-103: 395
-```
-$lgwip = 53.50.123.195
-$key = "abc123"
-```
-```powershell
-$lgw = New-AzLocalNetworkGateway -ResourceGroupName $g -Name $n -Location $l -GatewayIpAddress $lgwip -AddressPrefix "10.5.0.0/16"
-$vgw = Get-AzVirtualNetworkGateway -ResourceGroupNAme -Name
-New-AzVirtualNetworkGatewayConnection -ResourceGroupName $g -Name $n -Location $l -VirtualNetworkGateway1 $vgw -LocalNetworkGateway2 $lgw -ConnectionType IPsec -SharedKey $key
-```
-```sh
-az network local-gateway create --gateway-ip-address $lgwip --name LocalNetGW --resource-group ExamRefRG --local-address-prefixes 10.5.0.0/16
-az network vpn-connection create --name OnPremConnection --resource-group ExamRefRG --vnet-gateway1 VPNGW1 --location WestEurope --shared-key $key --local-gateway2 LocalNetGW
+
+```sh title="Create a Site-to-Site VPN"
+--8<-- "includes/Commands/az/az-network-s2s.sh"
 ```
 
 Sources

@@ -58,6 +58,7 @@ $copiedBlob | Get-AzStorageBlobCopyState
 ```sh
 az storage blob show --account-name $destStorageAccount --account-key $destStorageKey --container-name $destContainer --name $blobName
 ```
+
 ### Create SAS token
 ```powershell
 $storageKey = Get-AzStorageAccountKey -ResourceGroupName $g -Name $accountName
@@ -71,7 +72,7 @@ New-AzStorageBlobSASToken -Container $container -Blob $blob -Permission "rwd" -S
 az storage blob generate-sas --account-name "storageAccount" --account-key $storageAccountKey --container-name $container --name $blobName --permissions r --expiry "2019-05-31"
 ```
 
-### Create container
+### Create storage container
 
 ```powershell
 $storageKey = Get-AzStorageAccountKey -Name $storageAccount -ResourceGroupName $resourceGroup
@@ -92,7 +93,8 @@ Upload file as blob to new container
 === "Azure CLI"
 
     ```sh
-    az storage container create --account-name $storageaccount --name $containername --public-access off
+    az storage container create \
+        --account-name $STORAGE_ACCOUNT --name $CONTAINER_NAME --public-access off
     ```
     
 
@@ -100,8 +102,8 @@ Upload file as blob to new container
 
 ```powershell
 Get-AzVirtualNetwork -ResourceGroupName RG01 -Name VNET01 |
-Set-AzVirtualNetworkSubnetConfig -Name VSUBNET01 -AddressPrefix 10.0.0.0/24 -ServiceEndpoint Microsoft.Storage |
-Set-AzVirtualNetwork
+    Set-AzVirtualNetworkSubnetConfig -Name VSUBNET01 -AddressPrefix 10.0.0.0/24 -ServiceEndpoint Microsoft.Storage |
+    Set-AzVirtualNetwork
 
 $subnet = Get-AzVirtualNetwork -ResourceGroupName RG01 -Name VNET01 |
 Get-AzVirtualNetworkSubnetConfig -Name VSUBNET01
@@ -145,21 +147,21 @@ Sources
 
 Display virtual network rules
 
-=== "Azure PowerShell"
-
-    ```powershell
-    Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $rgName -AccountName $n | Select-Object VirtualNetworkRules
-    ```
-
 === "Azure CLI"
 
     ```sh
     az storage account network-rule list -g $rgName -n $n --query virtualNetworkRules
     ```
 
+=== ":material-powershell: Azure PowerShell"
+
+    ```powershell
+    Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $rgName -AccountName $n | Select-Object VirtualNetworkRules
+    ```
+
 Enable service endpoint for Azure Storage on an existing virtual network and subnet.
 
-=== "Azure PowerShell"
+=== ":material-powershell: Azure PowerShell"
 
     ```powershell
     Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $n | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" |   Set-AzVirtualNetwork
@@ -174,7 +176,7 @@ Enable service endpoint for Azure Storage on an existing virtual network and sub
 
 Add network rule for VNet and subnet
 
-=== "Azure PowerShell"
+=== ":material-powershell: Azure PowerShell"
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName $ng -Name $nn | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"

@@ -1,19 +1,19 @@
 # Azure IAM
 
-Azure methods of administering access to resources can be divided into two groups
-
-- [**Role-Based Access Controls (RBAC)**](Cloud/Azure-IAM) are supported only by Azure Portal and the ARM APIs. 
+Access to Azure resources is governed by **role-Based Access Controls (RBAC)** are supported only by Azure Portal and the ARM APIs. 
 RBAC is configured by selecting a **role** and associating it with a **security principal**, such as a user, group, or service identity. 
 Child reosurces inherit the roles of their parents ("role inheritance").
-- [Classic subscription administrators](#classic-subscription-administrators)
 
-## Classic subscription administrators
+!!! info "Classic subscription administrators"
 
-Classic subscription administrators have full access to a subcription. 
-They can access resources through Azure Portal, ARM APIs (PowerShell and CLI), and classic deployment model APIs. 
-By default, the account that is used to sign up for a subscription is automatically set as both **Account Administrator** and **Service Administrator**. 
-There can only be one Account Administrator per account and only 1 Service Administrator per subscription. 
-**Co-Administrators** have the same access as Service Administrators, and there can be 200 of them per subscription, but cannot change the association of subscriptions to directories.
+    Classic subscription administrators have full access to a subcription. 
+    They can access resources through Azure Portal, ARM APIs (PowerShell and CLI), and classic deployment model APIs.
+
+    By default, the account that is used to sign up for a subscription is automatically set as both **Account Administrator** and **Service Administrator**. 
+
+    There can only be one Account Administrator per account and only 1 Service Administrator per subscription. 
+
+    **Co-Administrators** have the same access as Service Administrators, and there can be 200 of them per subscription, but cannot change the association of subscriptions to directories.
 
 ## Roles
 
@@ -286,4 +286,3 @@ Sources
 
 #### SSPR
 
-Administrator accounts are treated differently from other user accounts for SSPR and have a "strong default **two-gate** password reset policy", which requires two pieces of authentication data and foregoes the use of security questions.

@@ -1,4 +1,5 @@
 In Kusto documentation `T` typically refers to the Table being queried:
+
 ```kql
 T
 | where Predicate
@@ -42,6 +43,7 @@ The SecurityEvent table provided as part of the [Log Analytics][Log Analytics] w
 - CommandLine
 
 Find logons, producing number of logins per Computer for computers with names beginning with "App"
+
 ```js
 SecurityEvent
 | where TimeGenerated between (ago(14d)..ago(7d))
@@ -74,17 +76,22 @@ SecurityEvent
 | 14   | Monsters University | Dan Scanlon    | 2013 | 110            |
 
 Find the title of each film
+
 ```kusto
 Movies 
 | project title
 ```
+
 Number of reporting computers each hour <sup>AZ-103: 53</sup>
+
 ```kusto
 Heartbeat 
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1h) 
 | render timechart
 ```
+
 List top 10 VMs with most error events over the past day <sup>MeasureUp</sup>
+
 ```kusto
 Event
 | where (EventLevelName == "Error")
