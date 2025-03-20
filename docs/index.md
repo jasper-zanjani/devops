@@ -1,8 +1,5 @@
 # Automation using Azure DevOps and Ansible
 
-
-
-
 **Azure Pipelines** are used to automate the building of source code, including executing associated tasks like unit tests and packaging.
 Every execution of a pipeline, or a **run**, produces an **artifact**.
 
@@ -20,8 +17,6 @@ But attempting to run it will produce an error reading "The pipeline must contai
 ```yaml title="pipeline.yml"
 trigger: none
 ```
-
-
 
 Simple pipelines can [omit](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pipeline?view=azure-pipelines) the stages and [**jobs**](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs?view=azure-pipelines) container and directly specify the steps keyword.
 In this case the pipeline is said to have a single **implicit** stage, as well as a single **implicit** job.

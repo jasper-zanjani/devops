@@ -1,9 +1,12 @@
 site_name: DevOps
 site_url: https://jasper-zanjani.github.io/devops
-site_dir: /home/jasper/Documents/mkdocs/devops
 theme:
   name: material
   favicon: favicon.png
+  icon:
+    admonition:
+      tip: fontawesome/solid/coins
+      example: octicons/link-16
   logo: logo.png
   palette:
     scheme: slate
