@@ -34,6 +34,14 @@
     --8<-- "includes/Commands/a/az-group.sh"
     ```
 
+=== "interactive"
+
+    Enter an [interactive environment](https://learn.microsoft.com/en-us/cli/azure/interactive-azure-cli) to run Azure CLI commands.
+
+=== "network"
+
+    --8<-- "includes/Commands/a/az-network.md"
+
 === "storage"
 
     ```sh
@@ -46,6 +54,8 @@
     --8<-- "includes/Commands/a/az-vm.sh"
     ```
 
-=== ":material-wrench: Config"
 
-    Settings are saved to $HOME/.azure/config by default
+=== ":material-wrench: config"
+
+    Settings are saved to **$HOME/.azure/config** by default
+
