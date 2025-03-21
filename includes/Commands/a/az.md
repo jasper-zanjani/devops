@@ -42,6 +42,12 @@
 
     --8<-- "includes/Commands/a/az-network.md"
 
+=== "staticwebapp"
+
+    ```sh
+    --8<-- "includes/Commands/a/az-staticwebapp.sh"
+    ```
+
 === "storage"
 
     ```sh

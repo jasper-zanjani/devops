@@ -2,7 +2,7 @@
 
 ![](/img/arm.png)
 
-[**Azure Resource Manager (ARM)**](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) is the interface for managing and organizing cloud resources.
+[**Azure Resource Manager**](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) (ARM) is the interface for managing and organizing cloud resources.
 
 An ARM [**template**](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) is a JSON file that precisely defines all ARM [resources](Resources) in a deployment. An ARM template can be deployed into a [resource group](Resources#resource-groups) as a single operation.
 

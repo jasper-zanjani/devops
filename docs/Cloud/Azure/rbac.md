@@ -1,6 +1,6 @@
-# Azure IAM
+# RBAC
 
-Access to Azure resources is governed by **role-Based Access Controls (RBAC)** are supported only by Azure Portal and the ARM APIs. 
+Access to Azure resources is governed by **Role-Based Access Controls** (RBAC) are supported only by Azure Portal and the ARM APIs. 
 RBAC is configured by selecting a **role** and associating it with a **security principal**, such as a user, group, or service identity. 
 Child reosurces inherit the roles of their parents ("role inheritance").
 
