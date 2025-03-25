@@ -1,7 +1,6 @@
 .vscode
 site/**
 **.bz2
-makefile
 .env
 
 # Terraform state
