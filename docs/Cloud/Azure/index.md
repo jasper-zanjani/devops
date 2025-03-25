@@ -8,5 +8,4 @@
 
     - [Datacenters](https://datacenters.microsoft.com/globe/explore)
 
-</div>
 

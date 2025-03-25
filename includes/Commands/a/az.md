@@ -16,6 +16,12 @@
     --8<-- "includes/Commands/a/az-aks.sh"
     ```
 
+=== "backup"
+
+    ```sh
+    --8<-- "includes/Commands/a/az-backup.sh"
+    ```
+
 === "config"
 
     ```sh
@@ -26,6 +32,12 @@
 
     ```sh
     --8<-- "includes/Commands/a/az-deployment.sh"
+    ```
+
+=== "extension"
+
+    ```sh
+    --8<-- "includes/Commands/a/az-extension.sh"
     ```
 
 === "group"
@@ -54,6 +66,12 @@
     --8<-- "includes/Commands/a/az-storage.sh"
     ```
 
+=== "upgrade"
+
+    ```
+    --8<-- "includes/Commands/a/az-upgrade.sh"
+    ```
+
 === "vm"
 
     ```sh
@@ -64,4 +82,14 @@
 === ":material-wrench: config"
 
     Settings are saved to **$HOME/.azure/config** by default
+
+=== ":material-download: extensions"
+
+    <div class="grid cards" markdown>
+
+    -   
+
+        --8<-- "includes/Commands/a/az-devops.md"
+
+    </div>
 
