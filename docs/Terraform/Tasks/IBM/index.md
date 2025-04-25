@@ -1,3 +1,3 @@
 # IBM Cloud tasks
 
---8<-- "includes/tf/ibm/provider.md"
+--8<-- "includes/configs/tf/ibm/provider.md"

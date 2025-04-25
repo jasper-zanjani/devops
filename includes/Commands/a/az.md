@@ -2,6 +2,8 @@
 
     ```sh
     --8<-- "includes/Commands/a/az-account.sh"
+
+    --8<-- "includes/Commands/a/az-account-list-locations.sh"
     ```
 
 === "ad"

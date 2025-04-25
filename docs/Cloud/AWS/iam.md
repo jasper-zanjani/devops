@@ -9,7 +9,7 @@ The root account is the email address used to sign up for AWS, which has full ad
 The following JSON policy document describes unlimited access to all resource types, and is the output provided by the AWS-managed AdministratorAccess IAM policy.
 
 ```json title="Policy document"
---8<-- "includes/Policy/everything.json"
+--8<-- "includes/configs/policy/everything.json"
 ```
 
 **Identity Providers** allow connections to solutions like Active Directory.
@@ -52,7 +52,7 @@ aws iam attach-group-policy \
 
     ---
 
-    --8<-- "includes/Tasks/aws/aws-iam-create-user.md"
+    --8<-- "includes/tasks/aws/aws-iam-create-user.md"
 
 -   #### Create administrator
 

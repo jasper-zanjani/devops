@@ -16,15 +16,15 @@
 
 <div class="grid cards" markdown>
 
-!!! info "Azure CLI"
+=== ":material-azure: Azure"
 
     --8<-- "includes/Commands/a/az.md"
 
-!!! info "IBM Cloud CLI"
+=== ":simple-ibmcloud: IBM Cloud CLI"
 
     --8<-- "includes/Commands/i/ibmcloud.md"
 
-!!! info "runpodctl"
+=== "runpodctl"
 
     --8<-- "includes/Commands/r/runpodctl.md"
 

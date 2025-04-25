@@ -1,14 +1,18 @@
-Azure Blob Storage can be used to host static web apps. (1)
+Azure Static Web Apps (1) allow modern web applications to be hosted on Azure Blob Storage.
 I was able to deploy a static web app from the Portal but not using the Azure CLI.
 GitHub Mobile refused to display the verification code I was being demanded to produce by the browser window.
 I am also not familiar with how to provide a token inline.
 {: .annotate }
 
-1.  
+1.  === "Links"
 
-    -   [Authenticate and authorize Static Web Apps](https://learn.microsoft.com/en-us/azure/static-web-apps/authentication-authorization)
+        -   [Website](https://azure.microsoft.com/en-us/products/app-service/static)
 
-    -   [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+    === "Resources"
+
+        -   [Authenticate and authorize Static Web Apps](https://learn.microsoft.com/en-us/azure/static-web-apps/authentication-authorization)
+
+        -   [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
 
 

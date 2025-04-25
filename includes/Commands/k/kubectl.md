@@ -1,7 +1,9 @@
-```sh
-kubectl run nginx --image=nginx
-kubectl delete pod nginx
-```
+=== ":material-star: Common"
+
+    ```sh
+    kubectl run nginx --image=nginx
+    kubectl delete pod nginx
+    ```
 
 === "api-resources"
 
@@ -19,56 +21,54 @@ kubectl delete pod nginx
 
     1. 
     ```yaml title="deployment.yaml"
-    --8<-- "includes/kubernetes/spec/deployment.yaml"
+    --8<-- "includes/configs/spec/deployment.yaml"
     ```
 
 === "config"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-config.sh"
+    --8<-- "includes/Commands/k/kubectl-config.sh"
     ```
 
 === "create"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-create.sh"
+    --8<-- "includes/Commands/k/kubectl-create.sh"
     ```
 
 === "describe"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-describe.sh"
+    --8<-- "includes/Commands/k/kubectl-describe.sh"
     ```
 
 === "exec"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-exec.sh"
+    --8<-- "includes/Commands/k/kubectl-exec.sh"
     ```
 
 === "explain"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-explain.sh"
+    --8<-- "includes/Commands/k/kubectl-explain.sh"
     ```
 
 === "expose"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-expose.sh"
+    --8<-- "includes/Commands/k/kubectl-expose.sh"
     ```
 
 === "get"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-get.sh"
+    --8<-- "includes/Commands/k/kubectl-get.sh"
     ```
 
 === "scale"
 
     ```sh
-    --8<-- "includes/Commands/kubectl/kubectl-scale.sh"
+    --8<-- "includes/Commands/k/kubectl-scale.sh"
     ```
-
-
 

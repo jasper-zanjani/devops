@@ -1,132 +1,12 @@
 # Tasks
 
-[**Cloud APIs** <sup>:material-google:</sup>](https://cloud.google.com/apis) are equivalent to Azure [**resource providers** <sup>:material-microsoft-azure:</sup>](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers).
-Unlike Azure, which automatically registers resource providers on use, Cloud APIs must be enabled per project.
+??? info "Enable services"
 
-!!! gcp "GCP"
-    ```sh
-    gcloud services enable container.googleapis.com
-    ```
+     --8<-- "includes/tasks/enable-services.md"
 
-!!! azure
-    ```sh
-    az provider register -n Microsoft.ContainerService
-    ```
+??? info "List available regions"
 
-
-#### Display all available regions
-
-!!! gcp "GCP"
-    ```sh
-    gcloud compute regions list
-    ```
-
---8<-- "includes/Cloud/Tasks/CLI.md"
-
---8<-- "includes/Cloud/Tasks/K8s.md"
-
---8<-- "includes/Cloud/Tasks/Storage.md"
-
-## 🛠&#xfe0f; Administration
-
-Display subscription ID
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    Get-AzSubscription
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az account show
-    ```
-
-### 🖥&#xfe0f; CLI
-
-Initialize CLI utility
-
-=== ":material-google::material-bash:"
-
-    ```sh
-    gcloud init
-    ```
-
-### IAM
-
-Add guest user
-
-    
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    New-AzureADMSInvitation 
-        -InvitedUserEmailAddress $EMAIL 
-        -SendInvitationMessage $True 
-        -InviteRedirectUrl "http://myapps.onmicrosoft.com"
-    ```
-
-=== ":material-microsoft-azure::fontawesome-solid-desktop:"
-
-    ![](/img/az-ad.jpg)
-    ![](/img/az-ad-guest.jpg)
-
-Assign a role
-
-=== ":material-google::material-bash:"
-
-    
-    ```sh
-    # At the organization level
-    gcloud organizations add-iam-policy-binding 
-        $ORG_ID
-        --member="user:$EMAIL"
-        --role="roles/compute.xpnAdmin"
-    ```
-
-    ```sh
-    # At the folder level
-    gcloud beta resource-manager-folders add-iam-policy-binding 
-        $FOLDER_ID
-        --member="user:$EMAIL"
-        --role="roles/compute.xpnAdmin"
-    ```
-
-### 💰 Cost management
-
-To view resource quotas for a subscription, go to the subscription in Azure Portal and open the **Usage + quotas** blade. From there you can select resources and then click the **Request Increase** button.
-
-View current usage of vCPU quotas
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    Get-AzVMUsage
-    ```
-
-View current usage of storage service
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    Get-AzStorageUsage
-    ```
-
-Create a budget
-
-To create a budget, open **Cost Management + Billing**, then **Subscriptions**, select a subscription, then click **Budgets**. 
-Then click **+ Add**, which produces a Create budget blade. 
-The created budget can be seen in the **Budgets** blade. 
-PowerShell commands used with budgets:
-
-- `Get-AzResourceGroup` retrieve Resource Group object
-- `Set-AzResourceGroup` apply a tag to a resource group with **no preexisting tags**
-- `.Tags` method that retrieves Tag collection from a resource group
-- `.Add()` method used to add tags to a resource group that **already has** tags.
-
-
+    --8<-- "includes/tasks/list-locations.md"
 
 ### Monitoring
 
@@ -144,270 +24,81 @@ VM extension
     az vm extension set --vm-name VM1 --resource-group ExamRefRG --publisher Microsoft.Azure.NetworkWatcher --version 1.4 --name NetworkWatcherAgentWindows --extension-instance-name NetworkWatcherAgent
     ```
 
-Start packet capture
-    
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    $nw = Get-AzResource | Where ResourceType -eq "Microsoft.Network/networkWatchers" -and Location -eq "WestEurope"
-    $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-    $storageAccount = Get-AzStorageAccount -Name examref-storage -ResourceGroupName ExamRefRG
-    
-    $filter1 = New-AzPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
-    $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
-    $vm = Get-AzVM ` -Name VM1 -ResourceGroupName ExamRefRG
-    
-    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
-    ```
     
 
-=== ":material-microsoft-azure::material-bash:"
+```sh
+# Start packet capture
+filter='[ { "protocol": "TCP", "remoteIPAddress": "1.1.1.1-255.255.255.255", "localIPAddress":"10.0.0.3", "remotePort":"20" } ]'
+az network watcher packet-capture create --name PacketCaptureTest2 --resource-group ExamRefRG --vm VM1 --time-limit 300 --storage-account examref-storage --filters $filter
 
-    ```sh
-    filter='[ { "protocol": "TCP", "remoteIPAddress": "1.1.1.1-255.255.255.255", "localIPAddress":"10.0.0.3", "remotePort":"20" } ]'
-    az network watcher packet-capture create --name PacketCaptureTest2 --resource-group ExamRefRG --vm VM1 --time-limit 300 --storage-account examref-storage --filters $filter
-    ```
+# Check status of packet capture
+az network watcher packet-capture show-status --name PacketCaptureTest --location WestEurope
 
-Check status of packet capture
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az network watcher packet-capture show-status --name PacketCaptureTest --location WestEurope
-    ```
-    
-Stop packet capture
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az network watcher packet-capture stop --name PacketCaptureTest --location WestEurope
-    ```
+# Stop packet capture
+az network watcher packet-capture stop --name PacketCaptureTest --location WestEurope
+```
 
 
 Use **IP Flow Verify** to test outbound connectivity from source VM and port to destination. If any configured filtering rules block traffic between the endpoints, it will return the name of the offending NSG.
 
-=== ":material-microsoft-azure::material-powershell:"
 
-    ```powershell
-    Test-AzNetworkWatcherIPFlow
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az network watcher test-ip-flow
-    ```
+```sh
+az network watcher test-ip-flow
+```
 
 Next Hop
 
-=== ":material-microsoft-azure::material-powershell:"
 
-    ```powershell
-    Get-AzNetworkWatcherNextHop
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az network watcher show-next-hop
-    ```
+```sh
+az network watcher show-next-hop
+```
 
 Use Network Topology
 
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    Get-AzNetworkWatcherTopology
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az network watcher show-topology
-    ```
-    
-Capture SFTP traffic
-
-```powershell
-$r = Get-AzResource | where ResourceType -eq "Microsoft.Network/networkWatchers" -and Location -eq "EastUS"
-$nw = Get-AzNetworkWatcher -Name $r.Name -ResourceGroupName $r.ResourceGroupName
-$s = Get-AzStorageAccount -ResourceGroupName "Diagnostics-RG" -Name "Diagnostics-Storage"
-$filter = New-AzPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.4" -LocalPort "1-65535" -RemotePort "22"
-
-New-AzNetworkWatcherPacketCapture -NetworkWatcher $nw -TargetVirtualMachineId $vm.ID -PacketCaptureName "Capture SFTP traffic" -StorageAccountId $s.Id -TimeLimitInSeconds 60 -Filter $filter
-```
-
-
-### Resources
-
-Create resource group
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    New-AzGroup -Location $location -Name $rgName
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az group create -l $location -n $rgName 
-    ```
-
-Register resource provider in subscription
 ```sh
-az provider register --namespace 'Microsoft.PolicyInsights'
+az network watcher show-topology
 ```
 
-Move resources
 
-=== ":material-microsoft-azure::material-powershell:"
+```sh
+# Move resources
+webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
 
-    ```powershell
-    $webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-
-    Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
-    plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
-
-    az resource move --destination-group newgroup --ids $webapp $plan
-    ```
-
-Create lock on a resource
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    New-AzResourceLock 
-        -LockName LockSite
-        -LockLevel CanNotDelete 
-        -ResourceGroupName $rg 
-        -ResourceName $r 
-        -ResourceType Microsoft.Web/sites 
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az lock create 
-        --name LockSite
-        --lock-type CanNotDelete 
-        --resource-group $rg 
-        --resource-name $r 
-        --resource-type Microsoft.Web/sites 
-    ```
-
-Create lock on a resource group
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    New-AzResourceLock 
-        -LockName LockGroup 
-        -LockLevel CanNotDelete 
-        -ResourceGroupName $rg
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az lock create 
-        --name LockGroup 
-        --lock-type CanNotDelete 
-        --resource-group $rg
-    ```
+az resource move --destination-group newgroup --ids $webapp $plan
+```
 
 
-Display resource lock
+```sh
+# Create lock on a resource
+az lock create 
+    --name LockSite
+    --lock-type CanNotDelete 
+    --resource-group $rg 
+    --resource-name $r 
+    --resource-type Microsoft.Web/sites 
 
-=== ":material-microsoft-azure::material-powershell:"
+# Create lock on a resource group
+az lock create 
+    --name LockGroup 
+    --lock-type CanNotDelete 
+    --resource-group $rg
 
-    ```powershell
-    Get-AzResourceLock -ResourceName $r -ResourceType Microsoft.Web/sites -ResourceGroupName $rg
-    ```
+# Display resource lock
+az lock list --resource-group $rg --resource-name $r --namespace Microsoft.Web --resource-type sites --parent ""
 
-=== ":material-microsoft-azure::material-bash:"
+# Delete resource lock
+lockid=$(az lock show --name LockSite --resource-group $rg --resource-type Microsoft.Web/sites --resource-name $r --output tsv --query id)
+az lock delete --ids $lockid
+```
 
-    ```sh
-    az lock list --resource-group $rg --resource-name $r --namespace Microsoft.Web --resource-type sites --parent ""
-    ```
+```sh
+# List all resources by tag
+az resource list --tag Dept=Finance
 
-Delete resource lock
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    $lockId = (Get-AzResourceLock -ResourceGroupName $rg -ResourceName $r -ResourceType Microsoft.Web/sites).LockId
-
-    Remove-AzResourceLock -LockId $lockId
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    lockid=$(az lock show --name LockSite --resource-group $rg --resource-type Microsoft.Web/sites --resource-name $r --output tsv --query id)
-    az lock delete --ids $lockid
-    ```
-
-Sources
-
-- [Manage Azure Resource Manager resource groups by using Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-powershell)
-- [Manage Azure Resource Manager resource groups by using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-cli)
-- [Resource providers](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers)
-- [Lock resources to prevent unexpected changes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)
-- AZ-103: [<code>1.3</code>](AZ-103#13-manage-resource-groups "Manage resource groups"), p. 76
-
-
-### Tags
-
-List all resources by tag
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    (Get-AzResource -Tag @{ CostCode="1001"}).Name
-    # List all resources by tag name, with no value
-    (Get-AzResource -TagName CostCode).Name
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az resource list --tag Dept=Finance
-    ```
-
-List resource groups by tag
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    (Get-AzResourceGroup -Tag @{ CostCode="1001" }).ResourceGroupName
-    ```
-    
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az group list --tag CostCode=1001
-    ```
+# List resource groups by tag
+az group list --tag CostCode=1001
+```
 
 Enumerate a resource's tags
 
@@ -1226,42 +917,4 @@ Set custom DNS servers on a NIC
 
     ```sh
     az network nic update --name VM1-NIC --resource-group ExamRefRG --dns-servers 8.8.8.8 8.8.4.4
-    ```
-    
-
-
-### Load balancing
-
-Create public load balancer
-
-Creating a load balancer in PowerShell requires defining objects which are all passed to `New-AzLoadBalancer` as objects:
-- Frontend IP 
-  - Public Ip Address resource (if public)
-  - Private IP address specified as a string (if internal)
-- Backend address pool
-- Health probe
-- Load balancing rule
-
-By contrast, in Azure CLI, the load balancer can be defined first with `az network lb create` before adding a probe and rule, passing the name of the load balancer to `--lb-name`.
-
-=== ":material-microsoft-azure::material-powershell:"
-
-    ```powershell
-    $publicIP = New-AzPublicIpAddress -Name ExamRefLB-IP -ResourceGroupName $g -Location $location -AllocationMethod Static 
-    $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name frontend -PublicIpAddress $publicIP
-    $beAddressPool = New-AzLoadBalancerBackendAddressPoolConfig -Name backend
-    $healthProbe = New-AzLoadBalancerProbeConfig -Name -RequestPath '/' -Protocol http -Port 80
-
-    $lbrule = New-AzLoadBalancerRuleConfig -Name -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-    $lb = New-AzLoadBalancer -ResourceGroupName -Name -Location -FrontendIpConfiguration $frontendIP -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
-    ```
-
-=== ":material-microsoft-azure::material-bash:"
-
-    ```sh
-    az network public-ip create --name ExamRefLB-IP --resource-group ExamRefRG --location --allocation-method Static
-    az network lb create --name ExamRefLB --resource-group ExamRefRG --location --backend-pool-name backend --frontend-ip-name frontend --public-ip-address ExamRefLB-IP
-    az network lb probe create --resource-group ExamRefRG --name HealthProbe --lb-name ExamRefLB --protocol http --port 80 --path / --interval 5 --threshold 
-
-    az network lb rule create --name ExamRefRule --lb-name ExamRefLB --resource-group ExamRefRG --protocol Tcp --frontend-port 80 --backend-port 80 --frontend-ip-name ExamRefFrontEnd --backend-pool-name backend --probe-name HealthProbe
     ```

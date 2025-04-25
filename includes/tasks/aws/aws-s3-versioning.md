@@ -12,5 +12,5 @@ Versioning cannot be disabled, only suspended.
 === ":material-terraform: Terraform"
 
     ```terraform
-    --8<-- "includes/tf/aws-s3-versioning.tf"
+    --8<-- "includes/configs/tf/aws-s3-versioning.tf"
     ```

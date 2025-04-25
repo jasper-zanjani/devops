@@ -1,7 +1,5 @@
-# Google Cloud Platform
+# GCP
 
---8<-- "includes/Cloud/GCP/gcloud.md"
+!!! info "Reference"
 
---8<-- "includes/Cloud/GCP/gcloud-container.md"
-
---8<-- "includes/Cloud/GCP/gcloud-storage.md"
+    --8<-- "includes/Commands/g/gcloud.md"

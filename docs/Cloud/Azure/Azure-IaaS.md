@@ -1,6 +1,6 @@
 ## High availability
 
---8<-- "includes/Topics/Azure/high-availability.md"
+--8<-- "includes/azure/high-availability.md"
 
 ```sh
 --8<-- "includes/Commands/a/az-vm-availability-set.sh"
@@ -8,7 +8,7 @@
     
 ## Load balancers
 
---8<-- "includes/Topics/Azure/load-balancers.md"
+--8<-- "includes/azure/load-balancers.md"
 
 # Tasks
 

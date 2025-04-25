@@ -1,6 +1,6 @@
 # provider
 
 ```terraform
---8<-- "includes/tf/az/provider.tf"
+--8<-- "includes/configs/tf/az/provider.tf"
 ```
 

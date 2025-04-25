@@ -4,5 +4,5 @@
 
 
 ```terraform title="Deploy a vnet and three associated subnets in the 10.0.0.0/24 address space"
---8<-- "includes/tf/az/vnet.tf"
+--8<-- "includes/configs/tf/az/vnet.tf"
 ```

@@ -1,5 +1,5 @@
 # azurerm\_resource\_group
 
 ```terraform
---8<-- "includes/tf/az/group.tf"
+--8<-- "includes/configs/tf/az/group.tf"
 ```

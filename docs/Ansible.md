@@ -278,94 +278,91 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
 ## Tasks
 
 #### Setup
-:   
-    The Ansible **control node** needs to be configured to elevate privileges.
-    This is done by modifying **ansible.cfg** in the relevant project directory or the system config at **/etc/ansible/ansible.cfg**
 
-    ```ini title="ansible.cfg"
-    [privilege_escalation]
-    become=yes
-    ```
+The Ansible **control node** needs to be configured to elevate privileges.
+This is done by modifying **ansible.cfg** in the relevant project directory or the system config at **/etc/ansible/ansible.cfg**
 
-    An Ansible service account is created on each **managed node**.
+```ini title="ansible.cfg"
+[privilege_escalation]
+become=yes
+```
 
-    ```sh
-    useradd ansible -s /usr/bin/bash -mG wheel # sudo
-    passwd ansible
-    su - ansible
-    ssh-keygen -A
-    ```
+An Ansible service account is created on each **managed node**.
 
-    Now the service account is given the ability to sudo any command without a password.
+```sh
+useradd ansible -s /usr/bin/bash -mG wheel # sudo
+passwd ansible
+su - ansible
+ssh-keygen -A
+```
 
-    ```sh title="/etc/sudoers.d/ansible"
-    # Without this line, plays will fail with the message "Missing sudo password" 
-    ansible ALL=(ALL) NOPASSWD: ALL
-    ```
+Now the service account is given the ability to sudo any command without a password.
 
-    The system inventory is an INI-format config located at **etc/ansible/hosts** and defines the clients which are to be controlled by the server.
+```sh title="/etc/sudoers.d/ansible"
+# Without this line, plays will fail with the message "Missing sudo password" 
+ansible ALL=(ALL) NOPASSWD: ALL
+```
 
-    The group name **all** is implicitly defined, and the following command will display all defined hosts.
+The system inventory is an INI-format config located at **etc/ansible/hosts** and defines the clients which are to be controlled by the server.
 
-    ```sh title="Display all available hosts"
-    ansible all --list-hosts
-    ```
+The group name **all** is implicitly defined, and the following command will display all defined hosts.
+
+```sh title="Display all available hosts"
+ansible all --list-hosts
+```
 
 #### Apache
-:   
 
-    ```yaml
-    --8<-- "includes/Tasks/apache.yaml"
-    ```
+```yaml
+--8<-- "includes/tasks/ansible/apache.yaml"
+```
 
-    ```yaml title="Using vars" hl_lines="3-4"
-    --8<-- "includes/Tasks/apache-vars.yaml"
-    ```
-    {: #httpd-vars }
+```yaml title="Using vars" hl_lines="3-4"
+--8<-- "includes/tasks/ansible/apache-vars.yaml"
+```
+{: #httpd-vars }
 
 #### Files
-:   
 
-    ```yaml title="Create file"
-    - copy:
-      dest: /etc/motd
-      content: "Hello, World!\n" # (1)
-    ```
+```yaml title="Create file"
+- copy:
+  dest: /etc/motd
+  content: "Hello, World!\n" # (1)
+```
 
-    1. Alma Linux 9 additionally requires the **libselinux-python** package to handle SELinux contexts. It is incorrectly identified as "libselinux-python" in the Ansible error message.
+1. Alma Linux 9 additionally requires the **libselinux-python** package to handle SELinux contexts. It is incorrectly identified as "libselinux-python" in the Ansible error message.
 
-    ```yaml title="Delete file"
-    - file:
-      path: /etc/motd
-      state: absent
-    ```
+```yaml title="Delete file"
+- file:
+  path: /etc/motd
+  state: absent
+```
 
-    ```yaml title="Create directory"
-    - file:
-      path: /home/ansible/.vim/autoload
-      state: directory
-      mode: 0755
-    ```
+```yaml title="Create directory"
+- file:
+  path: /home/ansible/.vim/autoload
+  state: directory
+  mode: 0755
+```
 
 #### User creation
-:   
 
-    ```yaml
-    --8<-- "includes/Tasks/user.yml"
-    ```
+```yaml
+--8<-- "includes/tasks/ansible/user.yml"
+```
 
-    More secure is using a separate vaulted variables file to keep the credential secure.
+More secure is using a separate vaulted variables file to keep the credential secure.
 
-    ```yaml title="playbooks/user.yml"
-    --8<-- "includes/Tasks/user-vault.yml"
-    ```
-    ```yaml title="playbooks/vars/user.yml"
-    username: newuser
-    password: password
-    ```
-    ```sh title="Run playbook providing a password file"
-    ansible-playbook --vault-password-file vault-pw playbooks/user.yml
-    ```
+```yaml title="playbooks/user.yml"
+--8<-- "includes/tasks/ansible/user-vault.yml"
+```
+```yaml title="playbooks/vars/user.yml"
+username: newuser
+password: password
+```
+```sh title="Run playbook providing a password file"
+ansible-playbook --vault-password-file vault-pw playbooks/user.yml
+```
 
 ## Commands
 
@@ -390,81 +387,81 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
 ```
 
 #### ansible-galaxy
-:   
-    --8<-- "includes/Commands/ansible-galaxy.md"
+
+--8<-- "includes/Commands/ansible-galaxy.md"
 
 ## Modules
 
 ```yaml title="apt"
---8<-- "includes/Modules/apt.yaml"
+--8<-- "includes/configs/modules/apt.yaml"
 ```
 
 ```yaml title="archive"
---8<-- "includes/Modules/archive.yaml"
+--8<-- "includes/configs/modules/archive.yaml"
 ```
 
 ```yaml title="cli_config"
---8<-- "includes/Modules/cli_config.yaml"
+--8<-- "includes/configs/modules/cli_config.yaml"
 ```
 
 ```yaml title="command"
---8<-- "includes/Modules/command.yaml"
+--8<-- "includes/configs/modules/command.yaml"
 ```
 
 ```yaml title="copy"
---8<-- "includes/Modules/copy.yaml"
+--8<-- "includes/configs/modules/copy.yaml"
 ```
 
 ```yaml title="debug"
---8<-- "includes/Modules/debug.yaml"
+--8<-- "includes/configs/modules/debug.yaml"
 ```
 
 ```yaml title="file"
---8<-- "includes/Modules/file.yaml"
+--8<-- "includes/configs/modules/file.yaml"
 ```
 
 ```sh title="file"
---8<-- "includes/Modules/file.sh"
+--8<-- "includes/configs/modules/file.sh"
 ```
 
 ```yaml title="firewalld"
---8<-- "includes/Modules/firewalld.yaml"
+--8<-- "includes/configs/modules/firewalld.yaml"
 ```
 
 ```yaml title="git"
---8<-- "includes/Modules/git.yaml"
+--8<-- "includes/configs/modules/git.yaml"
 ```
 
 ```yaml title="group"
---8<-- "includes/Modules/group.yaml"
+--8<-- "includes/configs/modules/group.yaml"
 ```
 
 ```yaml title="ini_file"
---8<-- "includes/Modules/ini_file.yaml"
+--8<-- "includes/configs/modules/ini_file.yaml"
 ```
 
 ```yaml title="lineinfile"
---8<-- "includes/Modules/lineinfile.yaml"
+--8<-- "includes/configs/modules/lineinfile.yaml"
 ```
 
 ```yaml title="package"
---8<-- "includes/Modules/package.yaml"
+--8<-- "includes/configs/modules/package.yaml"
 ```
 
 ```yaml title="redhat_subscription"
---8<-- "includes/Modules/redhat_subscription.yaml"
+--8<-- "includes/configs/modules/redhat_subscription.yaml"
 ```
 
 ```yaml title="replace"
---8<-- "includes/Modules/replace.yaml"
+--8<-- "includes/configs/modules/replace.yaml"
 ```
 
 ```yaml title="service"
---8<-- "includes/Modules/service.yaml"
+--8<-- "includes/configs/modules/service.yaml"
 ```
 
 ```sh title="setup"
---8<-- "includes/Modules/setup.sh"
+--8<-- "includes/configs/modules/setup.sh"
 ```
 
 ```yaml title="shell"
@@ -478,15 +475,15 @@ ansible-playbook --vault-password-file $pwfile playbooks/motd.yml
 ```
 
 ```yaml title="snap"
---8<-- "includes/Modules/snap.yaml"
+--8<-- "includes/configs/modules/snap.yaml"
 ```
 
 ```yaml title="systemd"
---8<-- "includes/Modules/systemd.yaml"
+--8<-- "includes/configs/modules/systemd.yaml"
 ```
 
 ```yaml title="template"
---8<-- "includes/Modules/template.yaml"
+--8<-- "includes/configs/modules/template.yaml"
 ```
 
 1. 
@@ -516,15 +513,15 @@ deb [trusted=yes] https://{{ host }}:443/Orion/AgentManagement/LinuxPackageRepos
 
 
 ```yaml title="user"
---8<-- "includes/Modules/user.yaml"
+--8<-- "includes/configs/modules/user.yaml"
 ```
 
 ```yaml title="yum"
---8<-- "includes/Modules/yum.yaml"
+--8<-- "includes/configs/modules/yum.yaml"
 ```
 
 ```yaml title="yum_repository"
---8<-- "includes/Modules/yum_repository.yaml"
+--8<-- "includes/configs/modules/yum_repository.yaml"
 ```
 
 ## Glossary

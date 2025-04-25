@@ -37,7 +37,7 @@ block_type "label" "name_label" {
 ```
 
 ```hcl title="Hello, World!"
---8<-- "includes/tf/hello-world.tf"
+--8<-- "includes/configs/tf/hello-world.tf"
 ```
 
 </div>
@@ -49,11 +49,11 @@ Many providers are available for Terraform, but most of them are cloud-based.
 <div class="grid cards" markdown>
 
 ```hcl title="IBM Cloud"
---8<-- "includes/tf/ibm/provider.tf"
+--8<-- "includes/configs/tf/ibm/provider.tf"
 ```
 
 ```hcl title="Azure"
---8<-- "includes/tf/az/provider.tf"
+--8<-- "includes/configs/tf/az/provider.tf"
 ```
 
 </div>

@@ -153,3 +153,17 @@ Update-AzVM -VM $vm -ResourceGroupName ExamRefRG
 $vm = Get-AzVM -ResourceGroupName $g -Name $vmName
 Set-AzVMDataDisk -VM $vm -Lun 0 -Caching ReadOnly
 Update-AzVM -ResourceGroupName $g -VM $vm
+
+New-AzureADMSInvitation 
+    -InvitedUserEmailAddress $EMAIL 
+    -SendInvitationMessage $True 
+    -InviteRedirectUrl "http://myapps.onmicrosoft.com"
+
+  # Create public load balancer
+  $publicIP = New-AzPublicIpAddress -Name ExamRefLB-IP -ResourceGroupName $g -Location $location -AllocationMethod Static 
+  $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name frontend -PublicIpAddress $publicIP
+  $beAddressPool = New-AzLoadBalancerBackendAddressPoolConfig -Name backend
+  $healthProbe = New-AzLoadBalancerProbeConfig -Name -RequestPath '/' -Protocol http -Port 80
+
+  $lbrule = New-AzLoadBalancerRuleConfig -Name -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+  $lb = New-AzLoadBalancer -ResourceGroupName -Name -Location -FrontendIpConfiguration $frontendIP -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
