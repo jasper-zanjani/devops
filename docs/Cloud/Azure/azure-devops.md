@@ -9,7 +9,7 @@
     ---
 
     
-    --8<-- "includes/Commands/a/az-devops.md"
+    --8<-- "includes/cmd/az/az-devops.md"
 
 -   #### Agent
     

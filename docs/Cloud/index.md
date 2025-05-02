@@ -18,15 +18,15 @@
 
 === ":material-azure: Azure"
 
-    --8<-- "includes/Commands/a/az.md"
+    --8<-- "includes/cmd/az/az.md"
 
 === ":simple-ibmcloud: IBM Cloud CLI"
 
-    --8<-- "includes/Commands/i/ibmcloud.md"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud.md"
 
 === "runpodctl"
 
-    --8<-- "includes/Commands/r/runpodctl.md"
+    --8<-- "includes/cmd/runpodctl/runpodctl.md"
 
 </div>
 

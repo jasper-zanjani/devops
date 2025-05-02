@@ -5,7 +5,7 @@ Azure offers a global infrastructure of [datacenters](https://datacenters.micros
 These can be queried from the command-line.
 
 ```sh
---8<-- "includes/Commands/a/az-account-list-locations.sh"
+--8<-- "includes/cmd/az/az-account-list-locations.sh"
 ```
 
 <div class="grid cards" markdown>
@@ -19,7 +19,7 @@ These can be queried from the command-line.
     Double quotes ++double-quote++ do not work.
 
     ```sh
-    --8<-- "includes/Commands/a/az-account-list-locations-query.sh"
+    --8<-- "includes/cmd/az/az-account-list-locations-query.sh"
     ```
 
 -   **jq**
@@ -29,7 +29,7 @@ These can be queried from the command-line.
     Alternatively, the results can be piped to the jq utility, which follows a similar but not identical syntax
 
     ```sh
-    --8<-- "includes/Commands/a/az-account-list-locations-jq.sh"
+    --8<-- "includes/cmd/az/az-account-list-locations-jq.sh"
     ```
 
 </div>

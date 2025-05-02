@@ -27,48 +27,48 @@
 === "config"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-config.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-config.sh"
     ```
 
 === "create"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-create.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-create.sh"
     ```
 
 === "describe"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-describe.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-describe.sh"
     ```
 
 === "exec"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-exec.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-exec.sh"
     ```
 
 === "explain"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-explain.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-explain.sh"
     ```
 
 === "expose"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-expose.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-expose.sh"
     ```
 
 === "get"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-get.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-get.sh"
     ```
 
 === "scale"
 
     ```sh
-    --8<-- "includes/Commands/k/kubectl-scale.sh"
+    --8<-- "includes/cmd/kubectl/kubectl-scale.sh"
     ```
 

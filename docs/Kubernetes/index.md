@@ -2,7 +2,7 @@
 
 !!! info "kubectl"
 
-    --8<-- "includes/Commands/k/kubectl.md"
+    --8<-- "includes/cmd/kubectl/kubectl.md"
 
 --8<-- "includes/kubernetes/info.md"
 

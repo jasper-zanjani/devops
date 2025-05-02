@@ -1,7 +1,7 @@
 === "iam"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-iam.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-iam.sh"
     ```
 
 
@@ -28,7 +28,7 @@
     ```
 
     ```sh title="Virtual machine operations"
-    --8<-- "includes/Commands/i/ibmcloud-pi-ins-act.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-pi-ins-act.sh"
     ```
 
 

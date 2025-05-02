@@ -1,13 +1,13 @@
 === "iam"
 
     ```sh
-    --8<-- "includes/Commands/a/aws-iam.sh"
+    --8<-- "includes/cmd/aws/aws-iam.sh"
     ```
 
 === "s3"
 
     ```sh
-    --8<-- "includes/Commands/a/aws-s3.sh"
+    --8<-- "includes/cmd/aws/aws-s3.sh"
     ```
 
 === "s3api"
@@ -15,7 +15,7 @@
     The [**s3api**](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) subcommand is lower-level than **s3**
     
     ```sh
-    --8<-- "includes/Commands/a/aws-s3api.sh"
+    --8<-- "includes/cmd/aws/aws-s3api.sh"
     ```
 
     1. 
@@ -28,6 +28,6 @@
     Enabling them requires changing the bucket ownership rule.
 
     ```sh title="Enable ACL"
-    --8<-- "includes/Commands/a/aws-s3api-acl.sh"
+    --8<-- "includes/cmd/aws/aws-s3api-acl.sh"
     ```
 

@@ -9,7 +9,7 @@ This gives the injected service explicit permissions to create service-specific 
     === "Tasks"
 
         ```sh title="az"
-        --8<-- "includes/Commands/a/az-network-vnet-subnet-delegation.sh"
+        --8<-- "includes/cmd/az/az-network-vnet-subnet-delegation.sh"
         ```
 
 

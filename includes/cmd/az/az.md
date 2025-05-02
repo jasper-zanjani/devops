@@ -1,51 +1,51 @@
 === "account"
 
     ```sh
-    --8<-- "includes/Commands/a/az-account.sh"
+    --8<-- "includes/cmd/az/az-account.sh"
 
-    --8<-- "includes/Commands/a/az-account-list-locations.sh"
+    --8<-- "includes/cmd/az/az-account-list-locations.sh"
     ```
 
 === "ad"
 
     ```sh
-    --8<-- "includes/Commands/a/az-ad.sh"
+    --8<-- "includes/cmd/az/az-ad.sh"
     ```
 
 === "aks"
 
     ```sh
-    --8<-- "includes/Commands/a/az-aks.sh"
+    --8<-- "includes/cmd/az/az-aks.sh"
     ```
 
 === "backup"
 
     ```sh
-    --8<-- "includes/Commands/a/az-backup.sh"
+    --8<-- "includes/cmd/az/az-backup.sh"
     ```
 
 === "config"
 
     ```sh
-    --8<-- "includes/Commands/a/az-config.sh"
+    --8<-- "includes/cmd/az/az-config.sh"
     ```
 
 === "deployment"
 
     ```sh
-    --8<-- "includes/Commands/a/az-deployment.sh"
+    --8<-- "includes/cmd/az/az-deployment.sh"
     ```
 
 === "extension"
 
     ```sh
-    --8<-- "includes/Commands/a/az-extension.sh"
+    --8<-- "includes/cmd/az/az-extension.sh"
     ```
 
 === "group"
 
     ```sh
-    --8<-- "includes/Commands/a/az-group.sh"
+    --8<-- "includes/cmd/az/az-group.sh"
     ```
 
 === "interactive"
@@ -54,30 +54,30 @@
 
 === "network"
 
-    --8<-- "includes/Commands/a/az-network.md"
+    --8<-- "includes/cmd/az/az-network.md"
 
 === "staticwebapp"
 
     ```sh
-    --8<-- "includes/Commands/a/az-staticwebapp.sh"
+    --8<-- "includes/cmd/az/az-staticwebapp.sh"
     ```
 
 === "storage"
 
     ```sh
-    --8<-- "includes/Commands/a/az-storage.sh"
+    --8<-- "includes/cmd/az/az-storage.sh"
     ```
 
 === "upgrade"
 
     ```
-    --8<-- "includes/Commands/a/az-upgrade.sh"
+    --8<-- "includes/cmd/az/az-upgrade.sh"
     ```
 
 === "vm"
 
     ```sh
-    --8<-- "includes/Commands/a/az-vm.sh"
+    --8<-- "includes/cmd/az/az-vm.sh"
     ```
 
 
@@ -91,7 +91,7 @@
 
     -   
 
-        --8<-- "includes/Commands/a/az-devops.md"
+        --8<-- "includes/cmd/az/az-devops.md"
 
     </div>
 

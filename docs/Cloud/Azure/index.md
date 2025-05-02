@@ -2,6 +2,6 @@
 
 !!! info "Azure CLI"
 
-    --8<-- "includes/Commands/a/az.md"
+    --8<-- "includes/cmd/az/az.md"
 
 

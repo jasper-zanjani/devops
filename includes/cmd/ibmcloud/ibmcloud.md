@@ -1,33 +1,33 @@
 === "account"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-account.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-account.sh"
     ```
 
 === "iam"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-iam.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-iam.sh"
     ```
 
 === "is"
 
-    --8<-- "includes/Commands/i/ibmcloud-is.md"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-is.md"
 
 === "login"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-login.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-login.sh"
     ```
 
 === "pi"
 
-    --8<-- "includes/Commands/i/ibmcloud-pi.md"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-pi.md"
 
 === "plugin"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-plugin.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-plugin.sh"
     ```
 
 === "regions"
@@ -40,13 +40,13 @@
 === "resource"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-resource.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-resource.sh"
     ```
 
 === "sl"
 
     ```sh
-    --8<-- "includes/Commands/i/ibmcloud-sl.sh"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud-sl.sh"
     ```
 
 === "target"

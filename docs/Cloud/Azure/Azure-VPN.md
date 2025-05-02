@@ -156,7 +156,7 @@ az network watcher troubleshooting start
 AZ-103: 395
 
 ```sh title="Create a Site-to-Site VPN"
---8<-- "includes/Commands/az/az-network-s2s.sh"
+--8<-- "includes/cmd/az/az-network-s2s.sh"
 ```
 
 Sources

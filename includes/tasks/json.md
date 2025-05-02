@@ -1,7 +1,7 @@
 Command-line clients for cloud providers often output JSON documents. These can be queried in various ways.
 
 ```sh
---8<-- "includes/Commands/a/az-account-list-locations.sh"
+--8<-- "includes/cmd/az/az-account-list-locations.sh"
 ```
 
 <div class="grid cards" markdown>
@@ -15,7 +15,7 @@ Command-line clients for cloud providers often output JSON documents. These can 
     Double quotes ++double-quote++ do not work.
 
     ```sh
-    --8<-- "includes/Commands/a/az-account-list-locations-query.sh"
+    --8<-- "includes/cmd/az/az-account-list-locations-query.sh"
     ```
 
 -   **jq**
@@ -25,7 +25,7 @@ Command-line clients for cloud providers often output JSON documents. These can 
     Alternatively, the results can be piped to the jq utility, which follows a similar but not identical syntax
 
     ```sh
-    --8<-- "includes/Commands/a/az-account-list-locations-jq.sh"
+    --8<-- "includes/cmd/az/az-account-list-locations-jq.sh"
     ```
 
 </div>

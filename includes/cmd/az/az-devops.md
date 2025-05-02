@@ -3,11 +3,11 @@
 === "devops"
 
     ```sh
-    --8<-- "includes/Commands/a/az-devops.sh"
+    --8<-- "includes/cmd/az/az-devops.sh"
     ```
 
 === "pipelines"
 
     ```sh
-    --8<-- "includes/Commands/a/az-pipelines.sh"
+    --8<-- "includes/cmd/az/az-pipelines.sh"
     ```

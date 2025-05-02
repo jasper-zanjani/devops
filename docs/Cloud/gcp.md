@@ -2,4 +2,4 @@
 
 !!! info "Reference"
 
-    --8<-- "includes/Commands/g/gcloud.md"
+    --8<-- "includes/cmd/gcloud/gcloud.md"

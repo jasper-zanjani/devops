@@ -2,7 +2,7 @@
 
 !!! info "IBM Cloud CLI"
 
-    --8<-- "includes/Commands/i/ibmcloud.md"
+    --8<-- "includes/cmd/ibmcloud/ibmcloud.md"
 
 ## [Terraform provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest)
 
@@ -45,6 +45,6 @@ Other values have given defaults:
 -   Storage tier: "tier3"
 
 ```sh title="Virtual machine operations"
---8<-- "includes/Commands/i/ibmcloud-pi-ins-act.sh"
+--8<-- "includes/cmd/ibmcloud/ibmcloud-pi-ins-act.sh"
 ```
 

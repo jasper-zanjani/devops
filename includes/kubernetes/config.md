@@ -9,5 +9,5 @@ kubectl config view
 Within a kubeconfig, a [**context**](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#context) element is used to group access parameters under a convenient name.
 
 ```sh
---8<-- "includes/Commands/kubectl/kubectl-contexts.sh"
+--8<-- "includes/cmd/kubectlubectl/kubectl-contexts.sh"
 ```

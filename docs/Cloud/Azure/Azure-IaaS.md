@@ -3,7 +3,7 @@
 --8<-- "includes/azure/high-availability.md"
 
 ```sh
---8<-- "includes/Commands/a/az-vm-availability-set.sh"
+--8<-- "includes/cmd/az/az-vm-availability-set.sh"
 ```
     
 ## Load balancers
@@ -14,7 +14,7 @@
 
 
 ```sh
---8<-- "includes/Commands/a/az-vm.sh"
+--8<-- "includes/cmd/az/az-vm.sh"
 ```
 
 

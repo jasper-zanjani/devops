@@ -1,0 +1,3 @@
+-   Standard general purpose v2
+-   Premium block blobs
+-   Premium page blobs

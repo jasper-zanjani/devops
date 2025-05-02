@@ -9,7 +9,7 @@ An ARM [**template**](https://learn.microsoft.com/en-us/azure/azure-resource-man
 Azure templates can be [targeted](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli#deployment-scope) to a resource group, subscription, management group, or tenant.
 
 ```sh
---8<-- "includes/Commands/az/az-deployment.sh"
+--8<-- "includes/cmd/az/az-deployment.sh"
 ```
 
 ARM templates are typically adapted from existing **Azure Quickstart** templates, which are contributed by the community and hosted on a [gallery](https://azure.microsoft.com/resources/templates). The **Azure Resource Manager Visualizer** assists users in seeing what the template will do before actually deploying.

@@ -17,7 +17,7 @@ I am also not familiar with how to provide a token inline.
 
 
 ```sh
---8<-- "includes/Commands/a/az-staticwebapp.sh"
+--8<-- "includes/cmd/az/az-staticwebapp.sh"
 ```
 
 The process of deploying to Azure also appears to depend on a GitHub workflow file, which I haven't had time to get into yet.

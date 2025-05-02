@@ -4,11 +4,11 @@ Unlike Azure, which automatically registers resource providers on use, Cloud API
 <div class="grid cards" markdown>
 
 ```sh title="gcloud"
---8<-- "includes/Commands/g/gcloud-services-enable.sh"
+--8<-- "includes/cmd/gcloud/gcloud-services-enable.sh"
 ```
 
 ```sh title="az"
---8<-- "includes/Commands/a/az-provider-register.sh"
+--8<-- "includes/cmd/az/az-provider-register.sh"
 ```
 
 </div>

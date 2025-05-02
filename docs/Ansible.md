@@ -367,28 +367,28 @@ ansible-playbook --vault-password-file vault-pw playbooks/user.yml
 ## Commands
 
 ```sh title="ansible"
---8<-- "includes/Commands/a/ansible.sh"
+--8<-- "includes/cmd/ansible/ansible.sh"
 ```
 
 ```sh title="ansible-config"
---8<-- "includes/Commands/a/ansible-config.sh"
+--8<-- "includes/cmd/ansible/ansible-config.sh"
 ```
 
 ```sh title="ansible-doc"
---8<-- "includes/Commands/a/ansible-doc.sh"
+--8<-- "includes/cmd/ansible/ansible-doc.sh"
 ```
 
 ```sh title="ansible-playbook"
---8<-- "includes/Commands/a/ansible-playbook.sh"
+--8<-- "includes/cmd/ansible/ansible-playbook.sh"
 ```
 
 ```sh title="ansible-vault"
---8<-- "includes/Commands/a/ansible-vault.sh"
+--8<-- "includes/cmd/ansible/ansible-vault.sh"
 ```
 
 #### ansible-galaxy
 
---8<-- "includes/Commands/ansible-galaxy.md"
+--8<-- "includes/cmd/ansiblensible-galaxy.md"
 
 ## Modules
 
