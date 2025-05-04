@@ -56,6 +56,12 @@
 
     --8<-- "includes/cmd/az/az-network.md"
 
+=== "policy"
+
+    ```sh
+    --8<-- "includes/cmd/az/az-policy.sh"
+    ```
+
 === "staticwebapp"
 
     ```sh

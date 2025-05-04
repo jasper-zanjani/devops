@@ -4,6 +4,12 @@ Command-line clients for cloud providers often output JSON documents. These can 
 --8<-- "includes/cmd/az/az-account-list-locations.sh"
 ```
 
+Google Cloud's CLI utility gcloud will also output JSON:
+
+```sh
+gcloud compute regions list --format json
+```
+
 <div class="grid cards" markdown>
 
 -   **Query**
@@ -30,8 +36,3 @@ Command-line clients for cloud providers often output JSON documents. These can 
 
 </div>
 
-GCP's CLI utility gcloud will also output JSON:
-
-```sh
-gcloud compute regions list --format json
-```

@@ -1,4 +1,4 @@
-# Kubernetes
+# Overview
 
 !!! info "kubectl"
 
