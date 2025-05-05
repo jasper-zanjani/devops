@@ -1,6 +1,7 @@
 
 -   A storage account is a unique namespace that contains containers and blobs.
-    It must have a globally unique name because it appears in the base address used for access (1).
+    It must have a globally unique name because it appears in the storage endpoint, the URL used for access (1).
+    Storage account names can be composed only of letters and numbers.
     {: .annotate }
 
     1.  `https://<storage_account>.blob.core.windows.net/<container>/<blob>`

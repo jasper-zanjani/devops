@@ -7,6 +7,18 @@
 
     --8<-- "includes/azure-blob-storage/components.md"
 
+=== "Offerings"
+
+    **Tiers**
+
+    --8<-- "includes/azure-blob-storage/tiers.md"
+
+    ---
+
+    **Redundancy**
+
+    --8<-- "includes/azure-blob-storage/redundancy.md"
+
 === "History"
 
     Azure Blob Storage was introduced by Azure in 2010, making it the oldest Azure storage service.
