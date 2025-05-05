@@ -27,7 +27,7 @@ Terraform configurations are written most commonly in [HCL](https://developer.ha
 
 <div class="grid cards" markdown>
 
-```hcl title="Syntax"
+```terraform title="Syntax"
 block_type "label" "name_label" {
     key = "value"
     nested_block {
@@ -36,7 +36,7 @@ block_type "label" "name_label" {
 }
 ```
 
-```hcl title="Hello, World!"
+```terraform title="Hello, World!"
 --8<-- "includes/configs/tf/hello-world.tf"
 ```
 
@@ -48,11 +48,11 @@ Many providers are available for Terraform, but most of them are cloud-based.
 
 <div class="grid cards" markdown>
 
-```hcl title="IBM Cloud"
+```terraform title="IBM Cloud"
 --8<-- "includes/configs/tf/ibm/provider.tf"
 ```
 
-```hcl title="Azure"
+```terraform title="Azure"
 --8<-- "includes/configs/tf/az/provider.tf"
 ```
 
@@ -64,7 +64,7 @@ Variables are declared in a **variable block** (1) and values can be [provided](
 
 1.  
 
-    ```hcl title="Variable definition"
+    ```terraform title="Variable definition"
     variable "name_label" {
         type = value
         description = "string"
@@ -98,7 +98,7 @@ Provisioners are described as a last resort in Terraform documentation because t
 
 [**local-exec**](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec) invokes a local executable.
 
-```hcl
+```terraform
 provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
 }
