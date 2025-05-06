@@ -4,6 +4,10 @@ az storage container create \
     --name $CONTAINER_NAME
 
 # Confirm
-az storage container exists -n $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
-az storage container list --acount-name $STORAGE_ACCOUNT_NAME
+az storage container exists \
+    --account-name $STORAGE_ACCOUNT_NAME \
+    -n $CONTAINER_NAME
+
+az storage container list \
+    --account-name $STORAGE_ACCOUNT_NAME
 ```

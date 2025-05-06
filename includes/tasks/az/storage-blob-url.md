@@ -5,7 +5,9 @@ az storage blob url \
     --name $BLOB_NAME
 
 # Test access
-az storage blob url --account-name $STORAGE_ACCOUNT_NAME -c $CONTAINER_NAME -n $BLOB_NAME |
-    jq -r '.' | xargs curl
+az storage blob url \
+    --account-name $STORAGE_ACCOUNT_NAME \
+    -c $CONTAINER_NAME \
+    -n $BLOB_NAME | jq -r '.' | xargs curl
 ```
 
