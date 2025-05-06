@@ -11,3 +11,5 @@
 --8<-- "includes/tasks/az/storage-blob-download.md"
 
 --8<-- "includes/tasks/az/storage-blob-url.md"
+
+--8<-- "includes/tasks/az/sas-token.md"

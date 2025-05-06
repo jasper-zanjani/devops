@@ -1,7 +1,20 @@
+# Storage
+
 #### [azurerm\_storage\_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#argument-reference)
 
-```terraform hl_lines="3-9"
---8<-- "includes/configs/tf/az/storage-account.tf"
---8<-- "includes/configs/tf/az/group.tf"
---8<-- "includes/configs/tf/az/provider.tf"
+```terraform
+--8<-- "includes/tf/azurerm_storage_account.tf"
+```
+
+#### [azurerm\_storage\_container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container)
+
+```terraform
+--8<-- "includes/tf/azurerm_storage_container.tf"
+```
+
+
+#### [azurerm\_storage\_blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_blob)
+
+```terraform
+--8<-- "includes/tf/azurerm_storage_blob.tf"
 ```

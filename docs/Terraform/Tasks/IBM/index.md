@@ -1,3 +1,9 @@
 # IBM Cloud tasks
 
---8<-- "includes/configs/tf/ibm/provider.md"
+```terraform
+--8<-- "includes/tf/ibm_provider.tf"
+```
+
+```terraform title="Power workspace"
+--8<-- "includes/tf/ibm_pi_workspaces.tf"
+```

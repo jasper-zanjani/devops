@@ -1,5 +1,5 @@
 # Create user
 
 ```terraform 
---8<-- "includes/configs/tf/aws/aws-iam.tf"
+--8<-- "includes/tf/aws_iam_user.tf"
 ```

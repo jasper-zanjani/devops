@@ -7,7 +7,13 @@
 
     --8<-- "includes/azure-blob-storage/components.md"
 
-=== "Offerings"
+=== "Concepts"
+
+    **Performance**
+
+    --8<-- "includes/azure-blob-storage/kinds.md"
+
+    ---
 
     **Tiers**
 

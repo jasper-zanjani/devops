@@ -70,9 +70,24 @@
 
 === "storage"
 
-    ```sh
-    --8<-- "includes/cmd/az/az-storage.sh"
-    ```
+    === "account"
+
+        ```sh
+        --8<-- "includes/cmd/az/az-storage-account.sh"
+        ```
+
+    === "blob"
+
+        ```sh
+        --8<-- "includes/cmd/az/az-storage-blob.sh"
+        ```
+
+    === "container"
+
+        ```sh
+        --8<-- "includes/cmd/az/az-storage-container.sh"
+        ```
+
 
 === "upgrade"
 
