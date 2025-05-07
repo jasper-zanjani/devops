@@ -1,3 +1,7 @@
+[az]: https://learn.microsoft.com/en-us/cli/azure/
+[az-account]: https://learn.microsoft.com/en-us/cli/azure/account
+[az-ad]: https://learn.microsoft.com/en-us/cli/azure/ad
+
 === "account"
 
     ```sh
@@ -6,11 +10,12 @@
     --8<-- "includes/cmd/az/az-account-list-locations.sh"
     ```
 
+    > [az][az] [account][az-account]
+
 === "ad"
 
-    ```sh
-    --8<-- "includes/cmd/az/az-ad.sh"
-    ```
+    --8<-- "includes/cmd/az/az-ad.md"
+
 
 === "aks"
 

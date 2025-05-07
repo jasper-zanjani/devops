@@ -1,4 +1,4 @@
-# Storage
+# azurerm\_storage
 
 #### [azurerm\_storage\_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#argument-reference)
 
