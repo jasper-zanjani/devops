@@ -4,6 +4,10 @@
 
     --8<-- "includes/cmd/az/az.md"
 
+## Compute
+
+    --8<-- "includes/azure-vms/info.md"
+
 ## Storage
 
 --8<-- "includes/azure/storage.md"

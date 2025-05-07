@@ -12,3 +12,7 @@ Alternatively, the results can be piped to the jq utility, which follows a simil
 --8<-- "includes/cmd/az/az-account-list-locations-jq.sh"
 ```
 
+
+```sh title="Find VM image publishers by name"
+--8<-- "includes/cmd/az/az-vm-image-list-publishers.sh"
+```

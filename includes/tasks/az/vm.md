@@ -1,7 +1,11 @@
-# VM
-
-
 ```sh
+az vm create \
+    --resource-group $RESOURCE_GROUP \
+    --name $VM_NAME \
+    --image $IMAGE_NAME \
+    --generate-ssh-keys
+
+
 # Resize VM
 az vm list-vm-resize-options 
     -g $g -n $n 
@@ -30,16 +34,18 @@ az vm redeploy -g $g -n $n
 az vm deallocate -g $g --name $vmName
 az vm generalize -g $g --name $vmName
 az image create -g $g --name $imageName --source $vmName 
+
+# Add a new disk to a VM
+az vm disk attach -g ExamRefRG --vm-name ExamRefVM --name myDataDisk --new --size-gb 128 --sku Premium_LRS
+
+# Modify host cache setting
+az vm disk attach --vm-name $VM_NAME -g $RG_NAME \
+    --size-gb 128 --disk $DISK_NAME --caching ReadWrite --new
+az vm unmanaged-disk attach
 ```
 
 
 
-```sh
-az group create --name $g --location $location
-vmName="myUbuntuVM"
-imageName="UbuntuLTS"
-az vm create -g $g -n $vmName --image $imageName --generate-ssh-keys
-```
 
 
 ```sh
@@ -87,15 +93,6 @@ az vm create -n $vmName -g $g -l $location --size $vmSize --nics $nicname --imag
 ## VHD
 
 
-```sh
-# Add a new disk to a VM
-az vm disk attach -g ExamRefRG --vm-name ExamRefVM --name myDataDisk --new --size-gb 128 --sku Premium_LRS
-
-# Modify host cache setting
-az vm disk attach --vm-name $VM_NAME -g $RG_NAME \
-    --size-gb 128 --disk $DISK_NAME --caching ReadWrite --new
-az vm unmanaged-disk attach
-```
 
 
 ## ARM templates
