@@ -8,4 +8,3 @@
     --8<-- "includes/cmd/az/az-ad-sp-create.output"
     ```
 
->   [az][az] [ad][az-ad]

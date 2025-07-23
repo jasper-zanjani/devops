@@ -1,0 +1,6 @@
+trigger: none
+pool: Hyper-V 
+steps:
+- checkout: self  
+- bash: | 
+    echo "Hello, World!" > ~/hello

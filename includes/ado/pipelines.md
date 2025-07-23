@@ -1,5 +1,3 @@
-# Automation using Azure DevOps and Ansible
-
 **Azure Pipelines** are used to automate the building of source code, including executing associated tasks like unit tests and packaging.
 Every execution of a pipeline, or a **run**, produces an **artifact**.
 
@@ -14,8 +12,8 @@ The simplest possible pipeline is a YAML file with a single line defining a trig
 Creating a new repo with a single YAML file with only the [**trigger**](#trigger) keyword defined will allow a Pipeline to then be created.
 But attempting to run it will produce an error reading "The pipeline must contain at least one stage with no dependencies."
 
-```yaml title="pipeline.yml"
-trigger: none
+```yaml title="ado/00"
+--8<-- "includes/ado/00/pipeline.yml"
 ```
 
 Simple pipelines can [omit](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pipeline?view=azure-pipelines) the stages and [**jobs**](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs?view=azure-pipelines) container and directly specify the steps keyword.
