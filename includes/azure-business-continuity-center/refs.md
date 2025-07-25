@@ -1,0 +1,2 @@
+-   Microsoft Learn
+    -   [What is Azure Business Continuity Center?](https://learn.microsoft.com/en-us/azure/business-continuity-center/business-continuity-center-overview)

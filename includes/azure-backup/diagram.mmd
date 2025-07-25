@@ -1,0 +1,45 @@
+---
+title: Azure Backup
+---
+
+classDiagram
+  Vault o--> Item
+  Item *--> Policy
+  Policy *--> PolicyType
+  Vault o--> Job
+  Job *--> OperationType
+
+  class Item {
+    Policy
+  }
+
+  class Job {
+    OperationType
+  }
+
+  class OperationType {
+    <<enum>>
+    BACKUP
+    CONFIGUREBACKUP
+    DELETEBACKUPDATA
+    DISABLEBACKUP
+    RESTORE
+  }
+
+
+  class Vault {
+    Items
+    Jobs
+  }
+
+  class Policy {
+    PolicyType
+    Frequency
+    Retention
+  }
+
+  class PolicyType {
+    <<enum>>
+    STANDARD
+    ENHANCED
+  }
