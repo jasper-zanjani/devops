@@ -1,18 +1,35 @@
 # Overview
 
-!!! info "Azure CLI"
+!!! hint "Azure CLI"
 
-    --8<-- "includes/cmd/az/az.md"
+    --8<-- "includes/cmd/az/info.md"
 
-## Compute
+<!-- -->
+
+-   
 
     --8<-- "includes/azure-vms/info.md"
 
-## Storage
+-   
 
---8<-- "includes/azure/storage.md"
+    --8<-- "includes/azure-storage/info.md"
 
-## Networking
+-   
 
---8<-- "includes/azure/network.md"
+    --8<-- "includes/azure-blob-storage/info.md"
 
+-   
+
+    --8<-- "includes/azure-vnet/info.md"
+
+-   
+
+    --8<-- "includes/azure/subnet-delegation.md"
+
+-   
+
+    --8<-- "includes/azure/bastion.md"
+
+-   
+
+    --8<-- "includes/azure-virtual-desktop/info.md"

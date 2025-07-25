@@ -4,6 +4,7 @@ A **subnet** is a component of a vnet that takes up a portion of its address spa
 Different routing, traffic, and security policies can be applied to each subnet.
 {: .annotate }
 
-1.  === "Links"
+1.  
 
-        -   [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/ "free of charge")
+    --8<-- "includes/azure-vnet/callout.md"
+

@@ -1,0 +1,12 @@
+---
+title: Azure storage accounts
+---
+
+classDiagram
+  StorageAccount *--> AccessTier
+  StorageAccount *--> MinTlsVersion
+
+  class StorageAccount {
+    BlobStorage
+    TableStorage
+  }

@@ -1,0 +1,1 @@
+-   [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/ "free of charge")

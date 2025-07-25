@@ -1,0 +1,1 @@
+An [_application group_](https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology#application-groups) controls access to a full desktop or a logical group of applications available on session hosts in a host pool.
