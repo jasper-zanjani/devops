@@ -1,0 +1,2 @@
+-   Microsoft Learn
+    -   [.NET CLI overview](https://learn.microsoft.com/en-us/dotnet/core/tools/)

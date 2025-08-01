@@ -1,0 +1,1 @@
+-   [This video](https://www.youtube.com/watch?v=uXpf2ounaOw) on the mssql extension for VS Code is very dense!

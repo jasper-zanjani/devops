@@ -1,0 +1,3 @@
+-   Microsoft Learn
+    -   [Microsoft Fabric documentation](https://learn.microsoft.com/en-us/fabric/)
+-   [Learn Microsoft Fabric with Will :material-youtube:](https://www.youtube.com/@LearnMicrosoftFabric)

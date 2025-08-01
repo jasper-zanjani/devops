@@ -1,0 +1,3 @@
+-   [Getting Started with Python on Azure Cosmos DB](https://www.youtube.com/watch?v=KAyFWD4wdbE)
+-   [Azure Cosmos DB Samples Gallery](https://azurecosmosdb.github.io/gallery/)
+-   [azure-sdk-for-rust examples](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/cosmos/azure_data_cosmos/examples/cosmos)
