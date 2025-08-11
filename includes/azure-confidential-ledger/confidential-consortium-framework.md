@@ -1,0 +1,1 @@
+The [Confidential Consortium Framework](https://www.microsoft.com/en-us/research/project/confidential-consortium-framework/) (CCF) is an open-source framework from Microsoft Research that enables building secure and highly available applications.
