@@ -15,3 +15,6 @@ terraform apply -auto-approve
 
 # Remove resources
 terraform destroy
+
+# Display values of output blocks in module
+terraform output -raw $BLOCK

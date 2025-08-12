@@ -9,20 +9,18 @@
 
 === "ad"
 
-    --8<-- "includes/cmd/az/az-ad.md"
+    --8<-- "includes/cmd/az/ad.md"
 
 
 === "aks"
 
     ```sh
-    --8<-- "includes/cmd/az/az-aks.sh"
+    --8<-- "includes/cmd/az/aks.sh"
     ```
 
 === "backup"
 
-    ```sh
-    --8<-- "includes/cmd/az/az-backup.sh"
-    ```
+    --8<-- "includes/cmd/az/backup.md"
 
 === "config"
 
@@ -32,7 +30,7 @@
 
 === "cosmosdb"
 
-    --8<-- "includes/cmd/az/cosmosdb"
+    --8<-- "includes/cmd/az/cosmosdb.md"
 
 === "deployment"
 
@@ -43,7 +41,7 @@
 === "extension"
 
     ```sh
-    --8<-- "includes/cmd/az/az-extension.sh"
+    --8<-- "includes/cmd/az/extension.sh"
     ```
 
 === "group"
@@ -95,13 +93,6 @@
         ```sh
         --8<-- "includes/cmd/az/az-storage-container.sh"
         ```
-
-
-=== "upgrade"
-
-    ```
-    --8<-- "includes/cmd/az/az-upgrade.sh"
-    ```
 
 === "vm"
 
