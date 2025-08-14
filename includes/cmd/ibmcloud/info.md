@@ -4,11 +4,10 @@
     --8<-- "includes/cmd/ibmcloud/ibmcloud-account.sh"
     ```
 
+
 === "iam"
 
-    ```sh
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-iam.sh"
-    ```
+    --8<-- "includes/cmd/ibmcloud/iam.md"
 
 === "is"
 
@@ -20,9 +19,9 @@
     --8<-- "includes/cmd/ibmcloud/ibmcloud-login.sh"
     ```
 
-=== "pi"
+=== ":material-server: pi"
 
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-pi.md"
+    --8<-- "includes/cmd/ibmcloud/pi.md"
 
 === "plugin"
 

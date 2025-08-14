@@ -11,6 +11,14 @@ Command-line clients for cloud providers often output JSON documents. These can 
 gcloud compute regions list --format json
 ```
 
+
+
 </div>
 
 
+[johnkerl/miller](https://github.com/johnkerl/miller)
+
+```sh
+# Display JSON as a table
+mlr --ijson --opprint cat
+```

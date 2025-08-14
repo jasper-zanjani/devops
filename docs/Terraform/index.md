@@ -1,6 +1,6 @@
 # Overview
 
-??? info "Command reference"
+??? tip
 
     ```sh
     --8<-- "includes/cmd/terraform/terraform.sh"
@@ -39,7 +39,6 @@ Many providers are available for Terraform, but most of them are cloud-based.
 === "ibm"
 
     ```terraform
-    --8<-- "includes/tf/ibm_provider.tf"
+    --8<-- "includes/tf/ibm/provider.tf"
     ```
-
 

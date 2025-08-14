@@ -30,6 +30,10 @@
     --8<-- "includes/cmd/az/az-config.sh"
     ```
 
+=== "cosmosdb"
+
+    --8<-- "includes/cmd/az/cosmosdb"
+
 === "deployment"
 
     ```sh
@@ -61,6 +65,10 @@
     ```sh
     --8<-- "includes/cmd/az/az-policy.sh"
     ```
+
+=== "sql"
+    
+    --8<-- "includes/cmd/az/sql.md"
 
 === "staticwebapp"
 
