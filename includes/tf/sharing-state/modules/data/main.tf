@@ -1,0 +1,24 @@
+output "group" {
+  value = data.azurerm_resource_group.group.id
+}
+
+data "azurerm_resource_group" "group" {
+  name = var.group
+}
+
+provider "azurerm" {
+  subscription_id = var.subscription_id
+  features {}
+}
+
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "4.39"
+    }
+  }
+}
+
+variable "subscription_id" {}
+variable "group" {}
