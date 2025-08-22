@@ -1,3 +1,9 @@
+!!! example
+
+    ```terraform
+    --8<-- "includes/tf/ibm_pi_instance/full.tf"
+    ```
+
 The IBM Cloud **Power Virtual Server service (PowerVS)** is supported by a [Terraform module](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
 
 PowerVS infrastructure must be deployed to [supported regions](https://cloud.ibm.com/apidocs/power-cloud#endpoint) and the IBM provider requires a zone to be specified (short name only, i.e. `dal10`).
