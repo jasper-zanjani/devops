@@ -38,6 +38,10 @@
     --8<-- "includes/cmd/az/az-deployment.sh"
     ```
 
+=== "disk"
+
+    --8<-- "includes/cmd/az/disk.md"
+
 === "extension"
 
     ```sh
