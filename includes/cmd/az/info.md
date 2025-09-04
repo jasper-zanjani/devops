@@ -60,7 +60,7 @@
 
 === "network"
 
-    --8<-- "includes/cmd/az/az-network.md"
+    --8<-- "includes/cmd/az/network.md"
 
 === "policy"
 
@@ -80,23 +80,7 @@
 
 === "storage"
 
-    === "account"
-
-        ```sh
-        --8<-- "includes/cmd/az/az-storage-account.sh"
-        ```
-
-    === "blob"
-
-        ```sh
-        --8<-- "includes/cmd/az/az-storage-blob.sh"
-        ```
-
-    === "container"
-
-        ```sh
-        --8<-- "includes/cmd/az/az-storage-container.sh"
-        ```
+    --8<-- "includes/cmd/az/storage.md"
 
 === "vm"
 
