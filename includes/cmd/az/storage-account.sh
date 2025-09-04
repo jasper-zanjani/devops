@@ -1,8 +1,6 @@
-# Create LRS storage account
 az storage account create -n $NAME -g $GROUP -l $REGION \
     --sku "Standard_LRS"
 
-# Confirm
 az storage account show -n $NAME
 
 # Allow public access to blobs
@@ -18,11 +16,9 @@ az storage account update -n $NAME -g $GROUP \
 az storage account show -n $NAME -g $GROUP \
     --query "networkRuleSet.bypass"
 
-# Display access keys
 az storage account keys list \
     -n $STORAGE_ACCOUNT_NAME
 
-# Display virtual network rules
 az storage account network-rule list -n $NAME -g $GROUP \
     --query "virtualNetworkRules"
 
