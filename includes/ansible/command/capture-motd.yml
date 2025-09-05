@@ -1,0 +1,3 @@
+- name: Return motd to registered var
+  command: cat /etc/motd
+  register: mymotd

@@ -1,0 +1,7 @@
+# From work
+- name: Remove Grub Defaults
+  shell: |
+    awk '/### BEGIN \/etc\/grub.d\/10_linux ###/{stop=1} stop==0{print}' < ks/EFI/BOOT/grub.cfg > grub.cfg
+    cat grub.cfg
+  args:
+    chdir: "{{ isopath }}"
