@@ -1,6 +1,6 @@
 # Overview
 
-??? tip
+??? tip "terraform"
 
     --8<-- "includes/cmd/terraform/info.md"
 

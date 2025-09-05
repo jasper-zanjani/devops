@@ -1,14 +1,5 @@
 # Sharing state
 
-??? tip "Quick reference"
-
-    === "IBM Cloud"
-
-        --8<-- "includes/cmd/ibmcloud/info.md"
-
-    === "Azure"
-
-        --8<-- "includes/cmd/az/info.md"
 
 State can be shared between Terraform modules by creating a root modules which refers to both using [Module blocks](https://developer.hashicorp.com/terraform/language/modules/syntax).
 
