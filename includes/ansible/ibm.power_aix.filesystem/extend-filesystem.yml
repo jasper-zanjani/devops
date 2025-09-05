@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: Extend filesystem
+      ibm.power_aix.filesystem:
+        state: present
+        filesystem: /tmp
+        attributes: size=+1G
+

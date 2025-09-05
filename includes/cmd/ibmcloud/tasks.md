@@ -10,5 +10,4 @@ ibmcloud catalog locations -k region
 
 # Display only datacenters
 ibmcloud catalog locations -k dc
-
 ```

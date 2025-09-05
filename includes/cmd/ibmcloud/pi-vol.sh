@@ -7,5 +7,8 @@ ibmcloud pi vol ls
 #   --storage-tier: tier3
 ibmcloud pi vol cr --size 1
 
+# Update size of existing volume
+ibmcloud pi vol upd $VOLUME_ID -s 30
+
 # Delete a storage volume
 ibmcloud pi vol del $VOLUME_ID

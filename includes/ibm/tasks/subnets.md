@@ -1,6 +1,6 @@
 PowerVS subnets are different from regular subnets.
 
-=== ":material-console: IBM Cloud CLI"
+=== "Terminal"
 
     ```sh
     --8<-- "includes/cmd/ibmcloud/pi-subnet.sh"
@@ -9,5 +9,5 @@ PowerVS subnets are different from regular subnets.
 === ":material-terraform: Terraform"
 
     ```terraform
---8<-- "includes/tf/ibm/subnet.tf"
+    --8<-- "includes/tf/ibm_pi_network/hi.tf"
     ```

@@ -13,9 +13,8 @@ WORKSPACE_ID=$(terraform output -raw workspace)
 # Get details of a workspace
 ibmcloud pi ws get $WORKSPACE_ID
 
+# Target a workspace (requires workspace CRN)
 WORKSPACE_CRN=$(ibmcloud pi ws get $WORKSPACE_ID --json | jq '.details.crn')
-
-# Target a workspace (requires a Cloud Resource Name  )
 ibmcloud pi ws target $WORKSPACE_CRN
 
 # Delete a workspace

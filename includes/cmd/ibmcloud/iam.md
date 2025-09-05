@@ -1,5 +1,5 @@
 ```sh
---8<-- "includes/cmd/ibmcloud/ibmcloud-iam.sh"
+--8<-- "includes/cmd/ibmcloud/iam.sh"
 ```
 
 === "api-key"

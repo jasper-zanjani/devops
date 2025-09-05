@@ -1,9 +1,4 @@
-=== ":material-button-cursor: Console"
-
-    -   [List workspaces](https://cloud.ibm.com/power/workspaces)
-    -   [Create workspace](https://cloud.ibm.com/power/create-workspace)
-
-=== ":material-console: IBM Cloud CLI"
+=== "Terminal"
 
     ```sh
     WORKSPACE_ID=$(ibmcloud pi workspace list | jq '.Payload.workspaces[].id')
@@ -24,7 +19,7 @@
         --8<-- "includes/tf/ibm/workspace-output.tf"
         ```
 
-    Once provisioned, the workspace must be targeted.
+    Once provisioned, the workspace must be targeted in order to deploy further resources.
     Note that this command requires not the ID but the CRN, which must be retrieved from the JSON.
 
     ```sh
@@ -35,6 +30,6 @@
 === ":material-terraform: Terraform"
 
     ```terraform
-    --8<-- "includes/tf/ibm/res_workspace.tf"
+    --8<-- "includes/tf/ibm_pi_workspace/hi.tf"
     ```
 

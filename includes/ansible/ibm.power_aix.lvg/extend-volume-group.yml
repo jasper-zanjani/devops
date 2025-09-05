@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: Extend volume group
+      ibm.power_aix.lvg:
+        state: present
+        vg_name: rootvg
+        pvs: hdisk0
+

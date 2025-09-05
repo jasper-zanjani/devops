@@ -1,7 +1,7 @@
 === "account"
 
     ```sh
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-account.sh"
+    --8<-- "includes/cmd/ibmcloud/account.sh"
     ```
 
 
@@ -11,12 +11,12 @@
 
 === "is"
 
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-is.md"
+    --8<-- "includes/cmd/ibmcloud/is.md"
 
 === "login"
 
     ```sh
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-login.sh"
+    --8<-- "includes/cmd/ibmcloud/login.sh"
     ```
 
 === ":material-server: pi"
@@ -26,7 +26,7 @@
 === "plugin"
 
     ```sh
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-plugin.sh"
+    --8<-- "includes/cmd/ibmcloud/plugin.sh"
     ```
 
 === "regions"
@@ -39,13 +39,13 @@
 === "resource"
 
     ```sh
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-resource.sh"
+    --8<-- "includes/cmd/ibmcloud/resource.sh"
     ```
 
 === "sl"
 
     ```sh
-    --8<-- "includes/cmd/ibmcloud/ibmcloud-sl.sh"
+    --8<-- "includes/cmd/ibmcloud/sl.sh"
     ```
 
 === "target"

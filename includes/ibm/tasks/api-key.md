@@ -1,6 +1,6 @@
 Some services like Terraform need an API key.
 
-=== ":material-console: IBM Cloud CLI"
+=== "Terminal"
 
     ```sh title="API keys"
     # Create an API key, saved as the named file in the current working directory

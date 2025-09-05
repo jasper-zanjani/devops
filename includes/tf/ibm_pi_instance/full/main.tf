@@ -1,19 +1,3 @@
-variable "ibmcloud_api_key" {}
-variable "stock_image_id" {}
-variable "region" {}
-variable "ssh_pubkey" {}
-variable "zone" {}
-
-output "workspace_crn" {
-  description = "Needed to set workspace target when using IBMCloud CLI"
-  value = ibm_pi_workspace.workspace.crn
-}
-
-output "ip" {
-  description = "Public IP address of Power Virtual Server instance"
-  value = ibm_pi_instance.instance.pi_network[0].external_ip
-}
-
 resource "ibm_pi_instance" "instance" {
   pi_cloud_instance_id  = ibm_pi_workspace.workspace.id
   pi_instance_name      = "pvs-${random_id.suffix.hex}"
@@ -57,16 +41,4 @@ resource "ibm_pi_workspace" "workspace" {
   pi_name              = "workspace-${random_id.suffix.hex}"
   pi_datacenter        = var.region
   pi_resource_group_id = ibm_resource_group.group.id
-}
-
-provider "ibm" {
-  ibmcloud_api_key = var.ibmcloud_api_key
-  region           = var.region
-  zone             = var.zone
-}
-
-terraform {
-  required_providers {
-    ibm = { source = "IBM-Cloud/ibm" }
-  }
 }

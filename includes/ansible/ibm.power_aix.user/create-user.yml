@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - name: Create user
+      ibm.power_aix.user:
+        state: present
+        name: tina
+

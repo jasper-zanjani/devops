@@ -1,5 +1,14 @@
 Virtual Private Cloud infrastructure service
 
+=== "keys"
+
+    ```sh
+    ibmcloud is keys
+
+    # Takes text of public key by default, but can be passed a filename by prepending with @
+    ibmcloud is key-create $KEY_NAME "@$KEY_PATH"
+    ```
+
 === "subnet"
 
     ```sh
