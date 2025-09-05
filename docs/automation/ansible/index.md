@@ -1,5 +1,3 @@
-# Ansible
-
 ??? info "Projects for learning"
 
     There are [several areas][https://opensource.com/article/19/8/ops-tasks-ansible] where Ansible can be used in personal projects for learning purposes. 

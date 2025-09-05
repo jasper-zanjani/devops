@@ -1,9 +1,9 @@
 !!! success "To-do"
 
-    <div class="grid cards" markdown>
 
-    -   
+    -   _Azure Cookbook_
 
-        --8<-- "includes/azure-virtual-desktop/info.md"
+    -   Reorganize notes
 
-    </div>
+        -   Terraform task -> Cloud
+
