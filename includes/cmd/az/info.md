@@ -101,5 +101,9 @@
 
         --8<-- "includes/cmd/az/az-devops.md"
 
+    -   
+
+        --8<-- "includes/cmd/az/ml.md"
+
     </div>
 
