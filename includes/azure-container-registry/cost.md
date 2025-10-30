@@ -1,0 +1,2 @@
+-   Standard and Premium [SKUs](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-skus) offer greater storage and image throughput compared to Basic, which includes 10 GB.
+-   Connected registries (on-prem mirrors) are available at the Premium tier only
