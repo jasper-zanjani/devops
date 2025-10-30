@@ -1,0 +1,12 @@
+- [**Ad Hoc**](#ad-hoc): type of command run in realtime by an administrator working at the terminal
+- **Ansible Galaxy**: online portal where a gallery of roles made by the Ansible community can be found
+- **Ansible Tower**: web-based RESTful API endpoint that provides the officially supported GUI frontend to Ansible configuration management, available in two versions: standard ($13,000/yr) and premium ($17,500/yr)
+- **Ansible Vault**: place to keep encrypted passwords
+- **AWX**: Open-source project upon which Ansible Tower was built
+- **Fact**: System property gathered by Ansible when it executes a playbook on a node
+- [**Module**](#modules): standalone scripts that enable a particular task across many OSes, services, applications, etc. 
+Predefined modules are available in the **module library**, and new ones can be defined via Python or JSON.
+- **Play**: script or instruction that defines the task to be carried out in a server
+- **Role**: organize components of playbooks, allowing them to be reused
+- [**Task**](#task): A single scripted action in a playbook, equivalent to an ad hoc command
+- [**Vault**](#vault): feature of Ansible that allows you to keep sensitive data such as passwords or keys protected at rest, rather than as plaintext in playbooks or roles.
