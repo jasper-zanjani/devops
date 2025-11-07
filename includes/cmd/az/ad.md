@@ -1,10 +1,21 @@
-```sh title="Service principal"
---8<-- "includes/cmd/az/ad-sp.sh"
-```
+!!! tip "OData queries"
 
-1.  
+    --8<-- "includes/cmd/az/odata.md"
 
-    ``` title="Output"
-    --8<-- "includes/cmd/az/ad-sp-create.output"
+=== "sp"
+
+    ```sh
+    --8<-- "includes/cmd/az/ad-sp.sh"
     ```
 
+    1.  
+
+        ``` title="Output"
+        --8<-- "includes/cmd/az/ad-sp-create.output"
+        ```
+
+=== "user"
+
+    ```sh
+    --8<-- "includes/cmd/az/ad-user.sh
+    ```
