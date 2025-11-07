@@ -1,0 +1,171 @@
+---
+- name: Clean waagent
+  hosts: "{{ host_vars }}"
+  become: true
+  tasks:
+    - name: lock resolv.conf from editing 
+      shell: chattr +i /etc/resolv.conf 
+      
+    - name: Find all zip files related to waagent
+      find:
+        paths: /var/lib/waagent
+        file_type: file
+        pattern:
+          - '*.zip'
+        age: 7d
+        age_stamp: mtime
+      register: waagent_out
+
+    - name: Delete files over 7 days old
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ waagent_out.files }}"
+
+    - name: Locate files over 7 days old
+      find:
+        paths: /var/log
+        file_type: file
+        patterns:
+          - '*.gz'
+        age: 7d
+        age_stamp: mtime
+      register: logs_out
+    
+    - name: Delete files over 7 days old
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ logs_out.files }}"
+    
+    - name: Locate /var/log files over 3 days
+      find:
+        path: /var/log
+        file_type: file 
+        pattern: 
+          - 'audit/audit.log.*'
+          - 'boot.log-*'
+          - 'cron-*'
+          - 'maillog-*'
+          - 'messages-*'
+          - 'secure-*'
+          - 'spooler-*'
+          - 'yum.log-*'
+          - 'waagent.log'
+          - 'azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/CommandExecution.log'
+          - 'azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux/extension.log'
+          - 'azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log'
+          - 'azure/Microsoft.Azure.Diagnostics.LinuxDiagnostic/*/extension.log'
+          - 'azure/Microsoft.Azure.Diagnostics.LinuxDiagnostic/extension.log-*'
+          - 'azure/Microsoft.Azure.Diagnostics.LinuxDiagnostic/CommandExecution.log'
+          - 'azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/watcher.log'
+          - 'azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log'
+          - 'azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/extension.log'
+          - 'azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux/extension.log'
+          - 'sssd/krb5_child.log-*'
+          - 'sssd/sssd_KUBOTA-KNA.COM.log-*'
+        age: 3d
+        age_stamp: mtime
+      register: logfiles_out
+    
+    - name: Delete files over 3 days old
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ logfiles_out.files }}"
+
+    - name: Locate /var/opt files over 7 days
+      find:
+        path: /var/opt
+        file_type: file 
+        pattern: 
+          - 'microsoft/omsconfig/omsconfigdetailed.log'
+          - 'microsoft/omsagent/log'
+          - 'microsoft/omsconfig/omsconfig.log'
+        age: 7d
+        age_stamp: mtime
+      register: optfiles_out
+    
+    - name: Delete opt files over 7 days old
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ optfiles_out.files }}"
+    
+    - name: Locate /var/log/audit/ files over 7 days
+      find:
+        path: /var/log/audit
+        file_type: file 
+        pattern: 
+          - 'audit.log.*'
+        age: 7d
+        age_stamp: mtime
+      register: audit_files
+    
+    - name: Delete files over 7 days old
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ audit_files.files }}"
+    
+    - name: Locate /var/lib/rsyslog files over 3 days
+      find:
+        path: /var/lib/rsyslog
+        file_type: file 
+        pattern: 
+          - 'lad_mdsd_queue_syslog.*'
+        age: 3d
+        age_stamp: mtime
+      register: rsyslog_files
+    
+    - name: Delete files over 3 days old
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ rsyslog_files.files }}"
+
+    - name: empty 1
+      shell: "> /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/extension.log"
+      ignore_errors: true
+      
+    - name: empty 2
+      shell: "> /var/log/azure/Microsoft.OSTCExtensions.LinuxDiagnostic/extension.log"
+      ignore_errors: true
+
+    - name: empty 3
+      shell: "> /var/log/azure/Microsoft.OSTCExtensions.LinuxDiagnostic/CommandExecution.log"
+      ignore_errors: true
+
+    - name: empty 4
+      shell: "> /var/opt/microsoft/omsconfig/omsconfigdetailed.log"
+      ignore_errors: true
+    
+    - name: empty 5
+      shell: "rm -rf /var/log/glusterfs/glusterd.log-20*.gz"
+      ignore_errors: true
+    
+    - name: clean yum 
+      shell: yum clean all
+    
+    - name: restart rsyslog 
+      shell: systemctl restart rsyslog
+    
+    - name: restart sssd
+      shell: systemctl restart sssd
+      
+    - name: Disk usage from command module
+      command: df -h
+      register: space
+      ignore_errors: true
+    
+    - debug:
+            var: space.stdout_lines 
+
+    - name: Daniel wanted more details 
+      shell: "du -shx /var/*" #"du -h --max-depth=2"
+      register: allspace
+      ignore_errors: true
+    
+    - debug:
+            var: allspace.stdout_lines   
+      

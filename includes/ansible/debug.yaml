@@ -8,10 +8,11 @@
   copy:
     dest: /tmp/foo.txt
     content: |
-    Good Morning!
-      Awesome sunshine today.
+      Good Morning!
+        Awesome sunshine today.
     register: display_file_content
 - name: Debug display_file_content
   debug:
     var: display_file_content
     verbosity: 2
+

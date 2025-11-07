@@ -20,17 +20,23 @@
 --8<-- "includes/ansible/copy.yaml"
 ```
 
-```yaml title="debug"
---8<-- "includes/ansible/debug.yaml"
+#### debug
+
+--8<-- "includes/ansible/debug/info.md"
+
+#### dnf
+
+--8<-- "includes/ansible/dnf/info.md"
+
+#### file
+
+```yaml
+--8<-- "includes/ansible/file/file.yaml"
 ```
 
-```yaml title="file"
---8<-- "includes/ansible/file.yaml"
-```
+#### find
 
-```sh title="file"
---8<-- "includes/ansible/file.sh"
-```
+--8<-- "includes/ansible/find/info.md"
 
 ```yaml title="firewalld"
 --8<-- "includes/ansible/firewalld.yaml"
@@ -116,13 +122,5 @@ deb [trusted=yes] https://{{ host }}:443/Orion/AgentManagement/LinuxPackageRepos
 
 ```yaml title="user"
 --8<-- "includes/ansible/user.yaml"
-```
-
-```yaml title="yum"
---8<-- "includes/ansible/yum.yaml"
-```
-
-```yaml title="yum_repository"
---8<-- "includes/ansible/yum_repository.yaml"
 ```
 

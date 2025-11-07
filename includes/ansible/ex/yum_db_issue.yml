@@ -1,0 +1,46 @@
+---
+- name: A server(s) reporting issue with yum database
+  hosts: all
+  become: true
+  tasks:
+    - name: Make sure yum DB is functioning
+      command: /usr/bin/yum clean all
+      register: rpm_errors
+      ignore_errors: true
+    
+    - name: Remove the yum database files
+      file:
+        path: /var/lib/rpm/_db*
+        state: absent
+      when: (rpm_errors.stderr == 'error":" rpmdb')
+
+    - name: Repair the yum database
+      command: /usr/bin/rpm --rebuilddb
+      when: (rpm_errors.stderr == 'error":" rpmdb')
+
+    - name: Make sure yum DB is functioning
+      command: /usr/bin/yum clean all
+      register: rpm_errors
+      ignore_errors: false
+    
+    - name: RHSM update/refresh
+      command: "subscription-manager refresh; yum repolist"
+      register: sub_refresh
+      failed_when: sub_refresh.stderr != ""
+      ignore_errors: false
+    
+   #- name: get service facts
+   #  service_facts:
+ #
+   #- name: check if TFA is installed
+   #  fail:
+   #    msg: Tracefile Analyzer is not installed, why? It should have been there!
+   #  when: ansible_facts.services["firewalld.service"] is not defined
+   #  register: fw_stat
+#
+   #- name: Set runtime firewall rules to perm 
+   #  shell: |
+   #    firewall-cmd --runtime-to-permanent
+   #  ignore_errors: true
+   #  when: fw_stat.stdout != ""
+      

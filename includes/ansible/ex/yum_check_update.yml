@@ -1,0 +1,34 @@
+---
+- import_playbook: system_check.yml
+
+- name: DNF and YUM check update play 
+  hosts: all 
+  become: true 
+  tasks: 
+    - name: Updte yum.conf to uncomment  kernel 
+      copy: 
+        src: files/pre-patch/yum.conf
+#        src: /etc/ansible/files/pre-patch/yum.conf
+        dest: /etc
+        remote_src: false
+       
+    - name: yum check | Check for updates
+      yum:
+        list: updates
+        update_cache: true
+      register: stat_yum_check_output
+      when: (ansible_os_family == "RedHat") or (ansible_os_family == "CentOS")
+    
+    - name: yum check | Output debug yum check
+      debug:
+        msg: "{{ stat_yum_check_output }}"
+      when: (ansible_os_family == "RedHat") or (ansible_os_family == "CentOS")
+
+    - name: yum check | Output yum check results
+      debug:
+        msg: "{% set output = [] %}\
+            {% for result in stat_yum_check_output.results %}\
+              {{ output.append( result.name ~ '-' ~ result.version ~ '-' ~ result.release ) }}\
+            {% endfor %}\
+          {{ output }}"
+      when: (ansible_os_family == "RedHat") or (ansible_os_family == "CentOS")

@@ -25,11 +25,11 @@ The path for vars files appears to be interpreted relative to the location of th
 greet_name: World
 ```
 
-Variables can also be defined at runtime using the [**--extra-vars**/**-e**](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#defining-variables-at-runtime){: #extra-vars} option.
+Variables can also be defined at runtime using the [`--extra-vars`/`-e`](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#defining-variables-at-runtime) option.
 Variables can be passed as space-delimited or JSON format.
 
 ```sh
 ansible-playbook release.yml -e "version=1.23.45 other_variable=foo"
 ```
 
-Variables cane be [encrypted inline](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_vault.html#single-encrypted-variable) in an otherwise cleartext vars file.
+Variables cane be [encrypted inline](https://docs.ansible.com/ansible/2.9/user_guide/playooks_vault.html#single-encrypted-variable) in an otherwise cleartext vars file.

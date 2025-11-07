@@ -6,18 +6,6 @@ Ansible is distinguished for being **agentless**, meaning no special software is
 
     --8<-- "includes/ansible/callout.md"
 
-Ansible environments are usually made of [three components](https://docs.ansible.com/ansible/latest/getting_started/index.html):
-
--   Control node
-
--   Inventory (1)
-    {: .annotate }
-
-    1.  
-
-        --8<-- "includes/ansible/inventory.md"
-
--   Managed nodes
 
 Ansible can be used in one of two ways:
 
@@ -38,6 +26,10 @@ Any ad hoc command can be rewritten as a playbook, but some modules can only be 
 #### Variables
 
 --8<-- "includes/ansible/variables.md"
+
+#### Registers
+
+--8<-- "includes/ansible/registers.md"
 
 #### Control flow
 
