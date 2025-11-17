@@ -1,0 +1,1 @@
+-   [Azure Backup glossary](https://learn.microsoft.com/en-us/azure/backup/azure-backup-glossary)
