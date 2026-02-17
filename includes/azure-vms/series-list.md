@@ -1,6 +1,6 @@
 -   
 
-    --8<-- "includes/azure-vms/series-a.md"
+    --8<-- "includes/azure-vms/series-av2.md"
 
 -   
 
