@@ -9,5 +9,3 @@ az account set --subscription $SUBSCRIPTION
 
 # Logout
 az account clear
-
-

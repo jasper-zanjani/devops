@@ -1,6 +1,6 @@
 # Overview
 
-!!! hint "Azure CLI"
+!!! tip "Azure CLI"
 
     --8<-- "includes/cmd/az/info.md"
 

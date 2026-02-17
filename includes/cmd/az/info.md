@@ -1,88 +1,121 @@
+=== "a"
 
-=== "account"
+    **az account**
 
     ```sh
     --8<-- "includes/cmd/az/az-account.sh"
-
     --8<-- "includes/cmd/az/az-account-list-locations.sh"
     ```
 
-=== "ad"
+    ---
+
+    **az ad**
 
     --8<-- "includes/cmd/az/ad.md"
 
 
-=== "aks"
+    ---
+
+    **az aks**
 
     ```sh
     --8<-- "includes/cmd/az/aks.sh"
     ```
 
-=== "backup"
+=== "b"
+
+    **az backup**
 
     --8<-- "includes/cmd/az/backup.md"
 
-=== "config"
+=== "c"
+
+    **az config**
 
     ```sh
     --8<-- "includes/cmd/az/az-config.sh"
     ```
 
-=== "cosmosdb"
+    ---
+
+    **az cosmosdb**
 
     --8<-- "includes/cmd/az/cosmosdb.md"
 
-=== "deployment"
+
+=== "d"
+
+    **az deployment**
 
     ```sh
     --8<-- "includes/cmd/az/az-deployment.sh"
     ```
 
-=== "disk"
+    ---
+
+    **az disk**
 
     --8<-- "includes/cmd/az/disk.md"
 
-=== "extension"
+=== "e"
+
+    **az extension**
 
     ```sh
     --8<-- "includes/cmd/az/extension.sh"
     ```
 
-=== "group"
+===  "g"
+
+    **az group**
 
     ```sh
     --8<-- "includes/cmd/az/az-group.sh"
     ```
 
-=== "interactive"
+=== "i"
+
+    **az interactive**
 
     Enter an [interactive environment](https://learn.microsoft.com/en-us/cli/azure/interactive-azure-cli) to run Azure CLI commands.
 
-=== "network"
+=== "n"
+
+    **az network**
 
     --8<-- "includes/cmd/az/network.md"
 
-=== "policy"
+=== "p"
+
+    **az policy**
 
     ```sh
     --8<-- "includes/cmd/az/az-policy.sh"
     ```
 
-=== "sql"
+=== "s"
+
+    **az sql**
     
     --8<-- "includes/cmd/az/sql.md"
 
-=== "staticwebapp"
+    ---
+
+    **az staticwebapp**
 
     ```sh
     --8<-- "includes/cmd/az/az-staticwebapp.sh"
     ```
 
-=== "storage"
+    ---
+
+    **az storage**
 
     --8<-- "includes/cmd/az/storage.md"
 
-=== "vm"
+=== "v"
+
+    **az vm**
 
     ```sh
     --8<-- "includes/cmd/az/az-vm.sh"
