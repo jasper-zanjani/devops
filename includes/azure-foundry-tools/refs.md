@@ -1,0 +1,2 @@
+-   [Pricing](https://azure.microsoft.com/en-us/pricing/details/foundry-tools/)
+-   [What are Foundry Tools?](https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services)
