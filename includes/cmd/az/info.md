@@ -126,6 +126,10 @@
 
     Settings are saved to **$HOME/.azure/config** by default
 
+    [**Output**](https://learn.microsoft.com/en-us/cli/azure/format-output-azure-cli)
+
+    --8<-- "includes/cmd/az/output.md"
+
 === ":material-download: extensions"
 
     <div class="grid cards" markdown>
