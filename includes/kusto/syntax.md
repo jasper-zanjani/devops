@@ -75,12 +75,84 @@ SecurityEvent
 | 13   | Brave               | Brenda Chapman | 2012 | 102            |
 | 14   | Monsters University | Dan Scanlon    | 2013 | 110            |
 
-Find the title of each film
+Find title of each film
 
-```kusto
-Movies 
-| project title
+<div class="grid cards" markdown>
+
+```sql title="SQL"
+SELECT Title FROM Movies;
 ```
+
+```kusto title="Kusto"
+Movies | project Title
+```
+
+</div>
+
+---
+
+Find title and director of each film
+
+<div class="grid cards" markdown>
+
+```sql title="SQL"
+SELECT Title,Director FROM Movies;
+```
+
+```kusto title="Kusto"
+Movies | project Title,Director
+```
+
+</div>
+
+---
+
+Find the movie with a row id of 6
+
+<div class="grid cards" markdown>
+
+```sql title="SQL"
+SELECT * FROM Movies WHERE Id == 6;
+```
+
+```kusto title="Kusto"
+Movies | where Id == 6
+```
+
+</div>
+
+---
+
+Find the movies released in the years between 2000 and 2010
+
+<div class="grid cards" markdown>
+
+```sql title="SQL"
+SELECT * FROM movies WHERE Year BETWEEN 2000 AND 2010;
+```
+
+
+```kusto title="Kusto"
+Movies | where Year between (2000 .. 2010)
+```
+
+</div>
+
+---
+
+Find the movies not released in the years between 2000 and 2010
+
+<div class="grid cards" markdown>
+
+```sql title="SQL"
+SELECT * FROM movies where Year NOT BETWEEN 2000 AND 2010;
+```
+
+
+```kusto title="Kusto"
+```
+
+</div>
 
 Number of reporting computers each hour <sup>AZ-103: 53</sup>
 
@@ -210,13 +282,3 @@ Export data
 ```js
 .export async to sql ['dbo.StormEventTypeTable']
 ```
-
-Sources
-
-- [Azure Data Explorer documentation <sup>:material-microsoft:</sup>](https://docs.microsoft.com/en-us/azure/data-explorer/)
-- [How to start with Microsoft Azure Data Explorer  <sup>:material-play:</sup>](https://app.pluralsight.com/courses/2413d815-291e-4af4-a048-566402102229/table-of-contents)
-- [KQL quick reference <sup>:material-microsoft:</sup>](https://docs.microsoft.com/en-us/azure/data-explorer/kql-quick-reference)
-- [SQL to Kusto cheat sheet  <sup>:material-microsoft:</sup>](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet)
-- [Kusto.Explorer <sup>:material-microsoft:</sup>](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/tools/kusto-explorer)
-- **Azure Sentinel webinar** parts 1, [2  <sup>:material-play:</sup>](https://www.youtube.com/watch?v=YKD_OFLMpf8&t=883s), 3
-- KQL syntax: [`count`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/countoperator), [`take`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/takeoperator)

@@ -1,0 +1,4 @@
+.create database <YourDatabaseName> persist (
+  @"/kustodata/dbs/<YourDatabaseName>/md",
+  @"/kustodata/dbs/<YourDatabaseName>/data"
+  )

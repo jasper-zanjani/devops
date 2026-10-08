@@ -1,0 +1,1 @@
+.ingest into table MyIngestedSample(@"/kustodata/sample.csv")
