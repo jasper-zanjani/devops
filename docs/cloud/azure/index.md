@@ -33,3 +33,7 @@
 -   
 
     --8<-- "includes/azure-virtual-desktop/info.md"
+
+## Bicep
+
+--8<-- "includes/bicep/info.md"
