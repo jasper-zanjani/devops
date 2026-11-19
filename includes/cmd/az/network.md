@@ -1,18 +1,16 @@
-=== "bastion"
+```sh title="bastion"
+--8<-- "includes/cmd/az/network-bastion.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/network-bastion.sh"
-    ```
+```sh title="nic"
+--8<-- "includes/cmd/az/network-nic.sh"
+```
 
-=== "nic"
+```sh title="private-dns"
+--8<-- "includes/cmd/az/network-private-dns.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/network-nic.sh"
-    ```
-
-=== "vnet"
-
-    ```sh
-    --8<-- "includes/cmd/az/network-vnet.sh"
-    ```
+```sh title="vnet"
+--8<-- "includes/cmd/az/network-vnet.sh"
+```
 
