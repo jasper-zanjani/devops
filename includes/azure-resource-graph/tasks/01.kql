@@ -1,6 +1,0 @@
-// Display number of virtual machines by size
-Resources
-| where type == "microsoft.compute/virtualmachines"
-| extend Size = tostring(properties.hardwareProfile.vmSize)
-| summarize Count = count() by Size
-| sort by Count desc
