@@ -1,5 +1,9 @@
 # Storage
 
+--8<-- "includes/azure/storage.md"
+
+---
+
 --8<-- "includes/tasks/az/storage-account-create.md"
 
 --8<-- "includes/tasks/az/storage-account-delete.md"
