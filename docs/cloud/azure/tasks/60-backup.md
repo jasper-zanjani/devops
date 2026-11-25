@@ -1,9 +1,5 @@
 # Azure Backup
 
-??? hint "Azure CLI"
-
-    --8<-- "includes/cmd/az/info.md"
-
 ```sh
 # Create Recovery Services Vault
 az backup vault create --name $NAME --resource-group $RG --Location $L

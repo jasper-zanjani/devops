@@ -1,17 +1,11 @@
-=== "account"
+```sh title="az storage account"
+--8<-- "includes/cmd/az/storage-account.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/storage-account.sh"
-    ```
+```sh title="az storage blob"
+--8<-- "includes/cmd/az/storage-blob.sh"
+```
 
-=== "blob"
-
-    ```sh
-    --8<-- "includes/cmd/az/storage-blob.sh"
-    ```
-
-=== "container"
-
-    ```sh
-    --8<-- "includes/cmd/az/storage-container.sh"
-    ```
+```sh title="az storage container"
+--8<-- "includes/cmd/az/storage-container.sh"
+```

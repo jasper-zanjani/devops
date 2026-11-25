@@ -1,31 +1,22 @@
-=== "container"
 
-    ```sh
-    --8<-- "includes/cmd/az/backup-container.sh"
-    ```
+```sh title="az backup container"
+--8<-- "includes/cmd/az/backup-container.sh"
+```
 
-    --8<-- "includes/cmd/az/backup-container-notes.md"
+--8<-- "includes/cmd/az/backup-container-notes.md"
 
-=== "item"
+```sh title="az backup item"
+--8<-- "includes/cmd/az/backup-item.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/backup-item.sh"
-    ```
+```sh title="az backup job"
+--8<-- "includes/cmd/az/backup-job.sh"
+```
 
-=== "job"
+```sh title="az backup protection"
+--8<-- "includes/cmd/az/backup-protection.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/backup-job.sh"
-    ```
-
-=== "protection"
-
-    ```sh
-    --8<-- "includes/cmd/az/backup-protection.sh"
-    ```
-
-=== "vault"
-
-    ```sh
-    --8<-- "includes/cmd/az/backup-vault.sh"
-    ```
+```sh title="az backup vault"
+--8<-- "includes/cmd/az/backup-vault.sh"
+```

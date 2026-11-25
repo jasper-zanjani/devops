@@ -34,6 +34,15 @@
 
     --8<-- "includes/azure-virtual-desktop/info.md"
 
+-   
+
+    --8<-- "includes/azure-sql/info.md"
+
+## Backup
+
+--8<-- "includes/azure-backup/info.md"
+
 ## Bicep
 
 --8<-- "includes/bicep/info.md"
+

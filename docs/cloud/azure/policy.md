@@ -1,4 +1,4 @@
-# Azure Policy
+# Policy
 
 !!! tip "Azure CLI"
 

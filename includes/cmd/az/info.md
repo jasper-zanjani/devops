@@ -1,146 +1,101 @@
-=== "a"
+#### az account
 
-    **az account**
+```sh
+--8<-- "includes/cmd/az/az-account.sh"
+--8<-- "includes/cmd/az/az-account-list-locations.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/az-account.sh"
-    --8<-- "includes/cmd/az/az-account-list-locations.sh"
-    ```
+#### az ad
 
-    ---
+--8<-- "includes/cmd/az/ad.md"
 
-    **az ad**
+#### az aks
 
-    --8<-- "includes/cmd/az/ad.md"
+```sh
+--8<-- "includes/cmd/az/aks.sh"
+```
 
+#### az backup
 
-    ---
+--8<-- "includes/cmd/az/backup.md"
 
-    **az aks**
+#### az config
 
-    ```sh
-    --8<-- "includes/cmd/az/aks.sh"
-    ```
+```sh
+--8<-- "includes/cmd/az/az-config.sh"
+```
 
-=== "b"
+#### az cosmosdb
 
-    **az backup**
-
-    --8<-- "includes/cmd/az/backup.md"
-
-=== "c"
-
-    **az config**
-
-    ```sh
-    --8<-- "includes/cmd/az/az-config.sh"
-    ```
-
-    ---
-
-    **az cosmosdb**
-
-    --8<-- "includes/cmd/az/cosmosdb.md"
+--8<-- "includes/cmd/az/cosmosdb.md"
 
 
-=== "d"
+#### az deployment
 
-    **az deployment**
+```sh
+--8<-- "includes/cmd/az/az-deployment.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/az-deployment.sh"
-    ```
+#### az disk
 
-    ---
+--8<-- "includes/cmd/az/disk.md"
 
-    **az disk**
+#### az extension
 
-    --8<-- "includes/cmd/az/disk.md"
+```sh
+--8<-- "includes/cmd/az/extension.sh"
+```
 
-=== "e"
+#### az group
 
-    **az extension**
+```sh
+--8<-- "includes/cmd/az/az-group.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/extension.sh"
-    ```
+#### az interactive
 
-===  "g"
+Enter an [interactive environment](https://learn.microsoft.com/en-us/cli/azure/interactive-azure-cli) to run Azure CLI commands.
 
-    **az group**
+#### az network
 
-    ```sh
-    --8<-- "includes/cmd/az/az-group.sh"
-    ```
+--8<-- "includes/cmd/az/network.md"
 
-=== "i"
+#### az policy
 
-    **az interactive**
+```sh
+--8<-- "includes/cmd/az/az-policy.sh"
+```
 
-    Enter an [interactive environment](https://learn.microsoft.com/en-us/cli/azure/interactive-azure-cli) to run Azure CLI commands.
-
-=== "n"
-
-    **az network**
-
-    --8<-- "includes/cmd/az/network.md"
-
-=== "p"
-
-    **az policy**
-
-    ```sh
-    --8<-- "includes/cmd/az/az-policy.sh"
-    ```
-
-=== "s"
-
-    **az sql**
+#### az sql
     
-    --8<-- "includes/cmd/az/sql.md"
+--8<-- "includes/cmd/az/sql.md"
 
-    ---
+#### az staticwebapp
 
-    **az staticwebapp**
+```sh
+--8<-- "includes/cmd/az/az-staticwebapp.sh"
+```
 
-    ```sh
-    --8<-- "includes/cmd/az/az-staticwebapp.sh"
-    ```
+#### az storage
 
-    ---
+--8<-- "includes/cmd/az/storage.md"
 
-    **az storage**
+#### az vm
 
-    --8<-- "includes/cmd/az/storage.md"
+```sh
+--8<-- "includes/cmd/az/az-vm.sh"
+```
 
-=== "v"
+#### Configuration
 
-    **az vm**
+Settings are saved to **$HOME/.azure/config** by default
 
-    ```sh
-    --8<-- "includes/cmd/az/az-vm.sh"
-    ```
+[**Output**](https://learn.microsoft.com/en-us/cli/azure/format-output-azure-cli)
 
+--8<-- "includes/cmd/az/output.md"
 
-=== ":material-wrench: config"
+#### Extensions
 
-    Settings are saved to **$HOME/.azure/config** by default
+--8<-- "includes/cmd/az/az-devops.md"
 
-    [**Output**](https://learn.microsoft.com/en-us/cli/azure/format-output-azure-cli)
-
-    --8<-- "includes/cmd/az/output.md"
-
-=== ":material-download: extensions"
-
-    <div class="grid cards" markdown>
-
-    -   
-
-        --8<-- "includes/cmd/az/az-devops.md"
-
-    -   
-
-        --8<-- "includes/cmd/az/ml.md"
-
-    </div>
-
+--8<-- "includes/cmd/az/ml.md"

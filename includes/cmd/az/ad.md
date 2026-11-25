@@ -1,21 +1,16 @@
-!!! tip "OData queries"
+```sh title="az ad app"
+--8<-- "includes/cmd/az/ad-app.sh"
+```
 
-    --8<-- "includes/cmd/az/odata.md"
+```sh title="az ad sp"
+--8<-- "includes/cmd/az/ad-sp.sh"
+```
 
-=== "sp"
+1.  
 
-    ```sh
-    --8<-- "includes/cmd/az/ad-sp.sh"
+    ``` title="Output"
+    --8<-- "includes/cmd/az/ad-sp-create.output"
     ```
 
-    1.  
+--8<-- "includes/cmd/az/odata.md"
 
-        ``` title="Output"
-        --8<-- "includes/cmd/az/ad-sp-create.output"
-        ```
-
-=== "user"
-
-    ```sh
-    --8<-- "includes/cmd/az/ad-user.sh
-    ```
